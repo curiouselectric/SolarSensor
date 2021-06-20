@@ -5,5 +5,4 @@
   (lib (name 74xx)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/74xx.lib")(options "")(descr ""))
   (lib (name audio)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/audio.lib")(options "")(descr ""))
   (lib (name interface)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/interface.lib")(options "")(descr ""))
-  (lib (name matts_components)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/matts_components.lib)(options "")(descr ""))
 )
