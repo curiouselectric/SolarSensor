@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 30 0
+LIBS:SolarSensorPCB-cache
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -146,7 +147,7 @@ Connection ~ 3450 1400
 Text Notes 1500 1050 0    60   ~ 0
 Battery Supply. Switch on Batt Holder
 $Comp
-L SolarSensorPCB-rescue:DS18B20-matts_components U1
+L matts_components:DS18B20 U1
 U 1 1 585AB4EC
 P 2900 6650
 F 0 "U1" H 3050 6454 60  0000 C CNN
@@ -159,7 +160,7 @@ $EndComp
 Text Notes 2300 6250 0    60   ~ 0
 Temperature Measurement\nFor temp. compensation
 $Comp
-L SolarSensorPCB-rescue:MCP1702-50-matts_components U2
+L matts_components:MCP1702-50 U2
 U 1 1 58FDD16F
 P 4600 1800
 F 0 "U2" H 4750 1604 60  0000 C CNN
@@ -170,7 +171,7 @@ F 3 "" H 4600 1800 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SolarSensorPCB-rescue:OLED_I2C-matts_components DISP1
+L matts_components:OLED_I2C DISP1
 U 1 1 58FDD53C
 P 9500 5900
 F 0 "DISP1" H 9900 6900 60  0000 C CNN
@@ -311,7 +312,7 @@ Connection ~ 2900 7150
 Text HLabel 6450 2000 0    60   Input ~ 0
 TEMP_DATA
 $Comp
-L SolarSensorPCB-rescue:SW_PUSH-matts_components SW1
+L matts_components:SW_PUSH SW1
 U 1 1 58FDF0BF
 P 9950 3700
 F 0 "SW1" H 10030 3810 50  0000 C CNN
@@ -322,7 +323,7 @@ F 3 "" H 9950 3900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SolarSensorPCB-rescue:SW_PUSH-matts_components SW2
+L matts_components:SW_PUSH SW2
 U 1 1 58FDF15E
 P 10000 4100
 F 0 "SW2" H 10080 4210 50  0000 C CNN
@@ -435,7 +436,7 @@ SDA_I2C
 Text HLabel 7850 1900 2    60   Input ~ 0
 SCL_I2C
 $Comp
-L SolarSensorPCB-rescue:Arduino_Nano_Header-matts_components J1
+L matts_components:Arduino_Nano_Header J1
 U 1 1 58FDD321
 P 7300 2000
 F 0 "J1" H 7300 2800 60  0000 C CNN
@@ -736,7 +737,7 @@ Wire Wire Line
 Text Notes 5950 5050 0    60   ~ 0
 16 Bit ADC
 $Comp
-L SolarSensorPCB-rescue:SPST-matts_components SW3
+L matts_components:SPST SW3
 U 1 1 590154E6
 P 2150 1400
 F 0 "SW3" H 2150 1500 50  0000 C CNN
@@ -819,7 +820,7 @@ Wire Wire Line
 Wire Wire Line
 	9650 3700 9550 3700
 $Comp
-L SolarSensorPCB-rescue:ADS1115-matts_components U?
+L matts_components:ADS1115 U?
 U 1 1 60D28746
 P 6200 4300
 F 0 "U?" H 6250 4787 60  0000 C CNN
