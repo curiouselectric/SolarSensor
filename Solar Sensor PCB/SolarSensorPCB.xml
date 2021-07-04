@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>G:\My Drive\Work - Kits\PRODUCTS\Prototype\Solar Sensor\SolarSensor\Solar Sensor PCB\SolarSensorPCB.sch</source>
+    <date>04/07/2021 17:50:44</date>
+    <tool>Eeschema (5.1.10)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>SolarSensorPCB.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="P10">
+      <value>SERIAL</value>
+      <footprint>REInnovationFootprint:SIL-4_Grove_SCREW</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58FDD599</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>UP</value>
+      <footprint>REInnovationFootprint:SMD_SW_6x3_5</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0391</field>
+        <field name="LCSC">C319333</field>
+      </fields>
+      <libsource lib="SolarSensorPCB-rescue" part="SW_PUSH-matts_components" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58FDF0BF</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>47k</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0040</field>
+        <field name="LCSC">C17713</field>
+      </fields>
+      <libsource lib="device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5900CACA</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>PHOTO DIODE</value>
+      <footprint>REInnovationFootprint:TH_LED-5MM_larg_pad</footprint>
+      <fields>
+        <field name="Description">~</field>
+        <field name="Manufacturer">~</field>
+        <field name="Manufacturer Part No">~</field>
+        <field name="Notes">~</field>
+        <field name="Supplier 1">~</field>
+        <field name="Supplier 1 Cost">~</field>
+        <field name="Supplier 1 Part No">~</field>
+        <field name="Supplier 2">~</field>
+        <field name="Supplier 2 Cost">~</field>
+        <field name="Supplier 2 Part No">~</field>
+      </fields>
+      <libsource lib="device" part="D_Photo" description="Photodiode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5900DD96</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>10n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0105</field>
+        <field name="LCSC">C107135</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59012353</tstamp>
+    </comp>
+    <comp ref="P5">
+      <value>LOGO2</value>
+      <footprint>CuriousElectric3:TCEC_Words_13mm</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59012D3E</tstamp>
+    </comp>
+    <comp ref="P6">
+      <value>PCB</value>
+      <footprint>REInnovationFootprint:PCB_40mm_Round</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59012DA7</tstamp>
+    </comp>
+    <comp ref="P7">
+      <value>ENC</value>
+      <datasheet>https://www.rapidonline.com/pdf/30-3800e.pdf</datasheet>
+      <fields>
+        <field name="Description">~</field>
+        <field name="Manufacturer">~</field>
+        <field name="Manufacturer Part No">~</field>
+        <field name="Notes">~</field>
+        <field name="Supplier 1">Rapid</field>
+        <field name="Supplier 1 Cost">4.37</field>
+        <field name="Supplier 1 Part No">30-3804</field>
+        <field name="Supplier 2">~</field>
+        <field name="Supplier 2 Cost">~</field>
+        <field name="Supplier 2 Part No">~</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59012E13</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>100u</value>
+      <footprint>REInnovationFootprint:SM_4x5.3</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0566</field>
+        <field name="LCSC">C134722</field>
+      </fields>
+      <libsource lib="device" part="CP1" description="Polarized capacitor, US symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60CD624D</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0108</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60CD67EE</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>ADS1115</value>
+      <footprint>REInnovationFootprint:SM_MSOP10-0.5</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">4.7766</field>
+        <field name="LCSC">C37593</field>
+      </fields>
+      <libsource lib="SolarSensorPCB-rescue" part="ADS1115-matts_components" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60D28746</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0040</field>
+        <field name="LCSC">C17414</field>
+      </fields>
+      <libsource lib="device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60D4783F</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0108</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60D575A1</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>10k</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0045</field>
+        <field name="LCSC">C38522</field>
+      </fields>
+      <libsource lib="device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60D72265</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>10k</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0045</field>
+        <field name="LCSC">C17414</field>
+      </fields>
+      <libsource lib="device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60D728FF</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>10k</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0040</field>
+        <field name="LCSC">C38522</field>
+      </fields>
+      <libsource lib="device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60D72B52</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0108</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60DF05EA</tstamp>
+    </comp>
+    <comp ref="IC1">
+      <value>ATTINY85-P</value>
+      <footprint>REInnovationFootprint:SM_SOIC_8</footprint>
+      <libsource lib="matts_components" part="ATTINY85-P" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60D4B24E</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>ISP</value>
+      <footprint>REInnovationFootprint:ISP_3x2</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_02x03_Odd_Even" description="Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60D4C8E9</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>330R</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0050</field>
+        <field name="LCSC">C237764</field>
+      </fields>
+      <libsource lib="device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60DB1C59</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>LED</value>
+      <footprint>REInnovationFootprint:SM0805_LED</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0135</field>
+        <field name="LCSC">C2293</field>
+      </fields>
+      <libsource lib="device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60DD4F75</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>TSV911xxLx</value>
+      <footprint>REInnovationFootprint:SM_SOT-23-5</footprint>
+      <datasheet>www.st.com/resource/en/datasheet/tsv911.pdf</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.4576</field>
+        <field name="LCSC">C361052</field>
+      </fields>
+      <libsource lib="Amplifier_Operational" part="TSV911xxLx" description="Single rail-to-rail input/output 8 MHz operational amplifiers, SOT-23-5"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60E18C60</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>ADC</value>
+      <footprint>REInnovationFootprint:SIL-4_large_pad</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60E3FE6C</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>LM75B</value>
+      <footprint>REInnovationFootprint:SM_SOIC_8</footprint>
+      <datasheet>http://www.ti.com/lit/ds/symlink/lm75b.pdf</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.3457</field>
+        <field name="LCSC">C34565</field>
+      </fields>
+      <libsource lib="Sensor_Temperature" part="LM75B" description="Digital Temperature Sensor &amp; Thermal Watchdog with LP on I2C and bus fault timeout, SOIC-8 and VSSOP-8"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60E52C75</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0108</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60EA4E96</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>I2C_OLED</value>
+      <footprint>REInnovationFootprint:SIL-4_large_pad</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60EBFB0A</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Amplifier_Operational" part="MCP6L91T-EOT">
+      <aliases>
+        <alias>MCP6401T-xOT</alias>
+        <alias>MCP6001-OT</alias>
+        <alias>MCP601-xOT</alias>
+        <alias>OPA333xxDBV</alias>
+        <alias>OPA340NA</alias>
+        <alias>OPA376xxDBV</alias>
+        <alias>TS881xLx</alias>
+        <alias>TSV911xxLx</alias>
+        <alias>OPA330xxDBV</alias>
+        <alias>OPA356xxDBV</alias>
+        <alias>LMH6702MF</alias>
+        <alias>LMH6609MF</alias>
+        <alias>TLV2371DBV</alias>
+        <alias>OPA842xDBV</alias>
+        <alias>OPA843xDBV</alias>
+        <alias>OPA846xDBV</alias>
+        <alias>LT6015xS5</alias>
+        <alias>OPA197xDBV</alias>
+        <alias>OPA196xDBV</alias>
+        <alias>LPV811DBV</alias>
+        <alias>MCP6L01x-xOT</alias>
+        <alias>OPA365xxDBV</alias>
+      </aliases>
+      <description>10 MHz, 850 µA Op Amps, SOT-23-5</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/22141b.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MCP6L91T-EOT</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="output"/>
+        <pin num="2" name="V-" type="power_in"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="-" type="input"/>
+        <pin num="5" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x01">
+      <description>Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x01</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_02x03_Odd_Even">
+      <description>Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_2x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_02x03_Odd_Even</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Sensor_Temperature" part="LM75C">
+      <aliases>
+        <alias>LM75B</alias>
+      </aliases>
+      <description> Digital Temperature Sensor &amp; Thermal Watchdog, SOIC-8 and VSSOP-8</description>
+      <docs>http://www.ti.com/lit/ds/symlink/lm75b.pdf</docs>
+      <footprints>
+        <fp>SOIC*3.9x4.9mm*P1.27mm*</fp>
+        <fp>VSSOP*3.0x3.0mm*P0.65mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LM75C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="SDA" type="BiDi"/>
+        <pin num="2" name="SCL" type="input"/>
+        <pin num="3" name="O.S." type="openCol"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="A2" type="input"/>
+        <pin num="6" name="A1" type="input"/>
+        <pin num="7" name="A0" type="input"/>
+        <pin num="8" name="+Vs" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="SolarSensorPCB-rescue" part="ADS1115-matts_components">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ADS1115-matts_components</field>
+      </fields>
+      <pins>
+        <pin num="1" name="ADDR" type="input"/>
+        <pin num="2" name="RDY" type="input"/>
+        <pin num="3" name="GND" type="input"/>
+        <pin num="4" name="AIN0" type="input"/>
+        <pin num="5" name="AIN1" type="input"/>
+        <pin num="6" name="AIN2" type="input"/>
+        <pin num="7" name="AIN3" type="input"/>
+        <pin num="8" name="VDD" type="input"/>
+        <pin num="9" name="SDA" type="input"/>
+        <pin num="10" name="SCL" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="SolarSensorPCB-rescue" part="SW_PUSH-matts_components">
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_PUSH-matts_components</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="CP1">
+      <description>Polarized capacitor, US symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP1</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="D_Photo">
+      <description>Photodiode</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Photo</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="matts_components" part="ATTINY85-P">
+      <fields>
+        <field name="Reference">IC</field>
+        <field name="Value">ATTINY85-P</field>
+        <field name="Footprint">DIP8</field>
+      </fields>
+      <pins>
+        <pin num="1" name="PB5(~RESET~/dW/ADC0/PCINT5)" type="BiDi"/>
+        <pin num="2" name="PB3(XTAL1/CLKI/OC1B/ADC3/PCINT3)" type="BiDi"/>
+        <pin num="3" name="PB4(XTAL2/CLKO/OC1B/ADC2/PCINT4)" type="BiDi"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="PB0(MOSI/DI/SDA/AIN0/OC0A/OC1A/AREF/PCINT0)" type="BiDi"/>
+        <pin num="6" name="PB1(MISO/DO/AIN1/OC0B/OC1A/PCINT1)" type="BiDi"/>
+        <pin num="7" name="PB2(SCK/USCK/SCL/T0/INT0/ADC1/PCINT2)" type="BiDi"/>
+        <pin num="8" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Amplifier_Operational">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Amplifier_Operational.lib</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Connector_Generic.lib</uri>
+    </library>
+    <library logical="Sensor_Temperature">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Sensor_Temperature.lib</uri>
+    </library>
+    <library logical="SolarSensorPCB-rescue">
+      <uri>G:\My Drive\Work - Kits\PRODUCTS\Prototype\Solar Sensor\SolarSensor\Solar Sensor PCB/SolarSensorPCB-rescue.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>C:/Program Files/KiCad/share/kicad/library/device.lib</uri>
+    </library>
+    <library logical="matts_components">
+      <uri>G:/My Drive/KiCAD/kicad_reinnovation/KiCad My Libraries/matts_components.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(C1-Pad2)">
+      <node ref="R4" pin="2"/>
+      <node ref="D2" pin="1"/>
+      <node ref="C1" pin="2"/>
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="2" name="Net-(D1-Pad2)">
+      <node ref="R6" pin="2"/>
+      <node ref="D1" pin="2"/>
+    </net>
+    <net code="3" name="/SW1">
+      <node ref="D1" pin="1"/>
+      <node ref="SW1" pin="1"/>
+    </net>
+    <net code="4" name="+5V">
+      <node ref="C5" pin="1"/>
+      <node ref="C4" pin="2"/>
+      <node ref="P1" pin="2"/>
+      <node ref="U2" pin="8"/>
+      <node ref="C6" pin="1"/>
+      <node ref="R3" pin="1"/>
+      <node ref="U3" pin="8"/>
+      <node ref="R2" pin="1"/>
+      <node ref="R1" pin="1"/>
+      <node ref="C3" pin="1"/>
+      <node ref="C2" pin="2"/>
+      <node ref="IC1" pin="8"/>
+      <node ref="J1" pin="2"/>
+      <node ref="P10" pin="3"/>
+      <node ref="R6" pin="1"/>
+      <node ref="J2" pin="1"/>
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="5" name="GND">
+      <node ref="C5" pin="2"/>
+      <node ref="J1" pin="6"/>
+      <node ref="C4" pin="1"/>
+      <node ref="C6" pin="2"/>
+      <node ref="U3" pin="5"/>
+      <node ref="J2" pin="4"/>
+      <node ref="U3" pin="3"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="IC1" pin="4"/>
+      <node ref="C3" pin="2"/>
+      <node ref="D2" pin="2"/>
+      <node ref="C2" pin="1"/>
+      <node ref="P1" pin="1"/>
+      <node ref="U1" pin="2"/>
+      <node ref="U1" pin="4"/>
+      <node ref="R5" pin="1"/>
+      <node ref="U2" pin="6"/>
+      <node ref="U2" pin="5"/>
+      <node ref="U2" pin="7"/>
+      <node ref="U2" pin="4"/>
+      <node ref="P10" pin="4"/>
+    </net>
+    <net code="6" name="Net-(J2-Pad2)">
+      <node ref="J2" pin="2"/>
+      <node ref="U3" pin="7"/>
+    </net>
+    <net code="7" name="Net-(J2-Pad3)">
+      <node ref="U3" pin="6"/>
+      <node ref="J2" pin="3"/>
+    </net>
+    <net code="8" name="Net-(IC1-Pad1)">
+      <node ref="J1" pin="5"/>
+      <node ref="IC1" pin="1"/>
+    </net>
+    <net code="9" name="/D2">
+      <node ref="R2" pin="2"/>
+      <node ref="IC1" pin="7"/>
+      <node ref="J1" pin="3"/>
+    </net>
+    <net code="10" name="/D1">
+      <node ref="IC1" pin="6"/>
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="11" name="/SDA_I2C">
+      <node ref="P1" pin="4"/>
+    </net>
+    <net code="12" name="/SCL_I2C">
+      <node ref="P1" pin="3"/>
+    </net>
+    <net code="13" name="Net-(U2-Pad3)">
+      <node ref="U2" pin="3"/>
+    </net>
+    <net code="14" name="/D3">
+      <node ref="IC1" pin="2"/>
+      <node ref="P10" pin="1"/>
+    </net>
+    <net code="15" name="/D4">
+      <node ref="IC1" pin="3"/>
+      <node ref="P10" pin="2"/>
+    </net>
+    <net code="16" name="/SDA_I2C">
+      <node ref="U2" pin="1"/>
+    </net>
+    <net code="17" name="/SCL_I2C">
+      <node ref="U2" pin="2"/>
+    </net>
+    <net code="18" name="/SCL_I2C">
+      <node ref="U3" pin="10"/>
+    </net>
+    <net code="19" name="/SDA_I2C">
+      <node ref="U3" pin="9"/>
+    </net>
+    <net code="20" name="Net-(P5-Pad1)">
+      <node ref="P5" pin="1"/>
+    </net>
+    <net code="21" name="Net-(P7-Pad1)">
+      <node ref="P7" pin="1"/>
+    </net>
+    <net code="22" name="Net-(P6-Pad1)">
+      <node ref="P6" pin="1"/>
+    </net>
+    <net code="23" name="Net-(R3-Pad2)">
+      <node ref="R3" pin="2"/>
+      <node ref="U3" pin="2"/>
+    </net>
+    <net code="24" name="Net-(C1-Pad1)">
+      <node ref="U3" pin="4"/>
+      <node ref="R4" pin="1"/>
+      <node ref="U1" pin="1"/>
+      <node ref="C1" pin="1"/>
+    </net>
+    <net code="25" name="Net-(R5-Pad2)">
+      <node ref="R5" pin="2"/>
+      <node ref="U3" pin="1"/>
+    </net>
+    <net code="26" name="/D0">
+      <node ref="IC1" pin="5"/>
+      <node ref="J1" pin="4"/>
+      <node ref="R1" pin="2"/>
+    </net>
+  </nets>
+</export>
