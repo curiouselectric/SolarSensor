@@ -1,4 +1,4 @@
-1598459321366203
+1600084742593020
 Capacitor_SMD
 CP_Elec_3x5.3
 SMT capacitor, aluminium electrolytic, 3x5.3, Cornell Dubilier Electronics 
@@ -3921,6 +3921,13 @@ OSHW_logo_small_back
 0
 REInnovationFootprint
 PCB_40mm_Round
+
+
+0
+0
+0
+REInnovationFootprint
+PCB_40mm_Round_SolarSensorPCB_design
 
 
 0

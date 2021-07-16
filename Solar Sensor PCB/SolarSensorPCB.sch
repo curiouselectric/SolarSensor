@@ -266,7 +266,7 @@ U 1 1 59012DA7
 P 6650 7050
 F 0 "P6" H 6650 7150 50  0000 C CNN
 F 1 "PCB" V 6750 7050 50  0000 C CNN
-F 2 "REInnovationFootprint:PCB_40mm_Round" H 6650 7050 50  0001 C CNN
+F 2 "REInnovationFootprint:PCB_40mm_Round_SolarSensorPCB_design" H 6650 7050 50  0001 C CNN
 F 3 "" H 6650 7050 50  0000 C CNN
 	1    6650 7050
 	1    0    0    -1  
@@ -819,44 +819,40 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x04 J2
 U 1 1 60E3FE6C
-P 6850 4500
-F 0 "J2" H 6930 4492 50  0000 L CNN
-F 1 "ADC" H 6930 4401 50  0000 L CNN
-F 2 "REInnovationFootprint:SIL-4_large_pad" H 6850 4500 50  0001 C CNN
-F 3 "~" H 6850 4500 50  0001 C CNN
-	1    6850 4500
-	1    0    0    -1  
+P 6950 4700
+F 0 "J2" H 7030 4692 50  0000 L CNN
+F 1 "ADC" H 7030 4601 50  0000 L CNN
+F 2 "REInnovationFootprint:SIL-4_large_pad" H 6950 4700 50  0001 C CNN
+F 3 "~" H 6950 4700 50  0001 C CNN
+	1    6950 4700
+	1    0    0    1   
 $EndComp
 $Comp
 L power:+5V #PWR025
 U 1 1 60E40773
-P 6550 4350
-F 0 "#PWR025" H 6550 4200 50  0001 C CNN
-F 1 "+5V" H 6550 4500 50  0000 C CNN
-F 2 "" H 6550 4350 50  0000 C CNN
-F 3 "" H 6550 4350 50  0000 C CNN
-	1    6550 4350
+P 6200 4650
+F 0 "#PWR025" H 6200 4500 50  0001 C CNN
+F 1 "+5V" H 6200 4800 50  0000 C CNN
+F 2 "" H 6200 4650 50  0000 C CNN
+F 3 "" H 6200 4650 50  0000 C CNN
+	1    6200 4650
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR026
 U 1 1 60E40BB0
-P 6550 4750
-F 0 "#PWR026" H 6550 4500 50  0001 C CNN
-F 1 "GND" H 6550 4600 50  0000 C CNN
-F 2 "" H 6550 4750 50  0000 C CNN
-F 3 "" H 6550 4750 50  0000 C CNN
-	1    6550 4750
+P 6550 4850
+F 0 "#PWR026" H 6550 4600 50  0001 C CNN
+F 1 "GND" H 6550 4700 50  0000 C CNN
+F 2 "" H 6550 4850 50  0000 C CNN
+F 3 "" H 6550 4850 50  0000 C CNN
+	1    6550 4850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6650 4700 6550 4700
+	6550 4800 6550 4850
 Wire Wire Line
-	6550 4700 6550 4750
-Wire Wire Line
-	6550 4350 6550 4400
-Wire Wire Line
-	6550 4400 6650 4400
+	6200 4650 6200 4700
 Wire Wire Line
 	6650 4500 6400 4500
 Wire Wire Line
@@ -867,8 +863,6 @@ Wire Wire Line
 	6200 4250 6300 4250
 Wire Wire Line
 	6300 4250 6300 4600
-Wire Wire Line
-	6300 4600 6650 4600
 $Comp
 L Sensor_Temperature:LM75B U2
 U 1 1 60E52C75
@@ -1043,7 +1037,7 @@ Text Notes 8550 6100 0    60   ~ 0
 Potential OLED output for a little display?
 Text Notes 8800 4650 0    60   ~ 0
 Switch/LED combo for \ndata display and user input
-Text Notes 6100 5200 0    60   ~ 0
+Text Notes 6100 5450 0    60   ~ 0
 We can measure two more \nanalog pins here, if needed.
 Wire Wire Line
 	2250 2150 2250 2400
@@ -1079,4 +1073,20 @@ Wire Wire Line
 	3850 4700 5300 4700
 Wire Wire Line
 	2850 4250 3850 4250
+Wire Wire Line
+	6700 4600 6700 4500
+Wire Wire Line
+	6700 4500 6750 4500
+Wire Wire Line
+	6300 4600 6700 4600
+Wire Wire Line
+	6650 4500 6650 4550
+Wire Wire Line
+	6650 4550 6750 4550
+Wire Wire Line
+	6750 4550 6750 4600
+Wire Wire Line
+	6200 4700 6750 4700
+Wire Wire Line
+	6550 4800 6750 4800
 $EndSCHEMATC
