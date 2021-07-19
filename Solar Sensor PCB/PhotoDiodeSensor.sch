@@ -1,0 +1,338 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 8350 3200 2    60   Output ~ 0
+SCL_I2C
+Text HLabel 8350 3350 2    60   Output ~ 0
+SDA_I2C
+$Comp
+L device:R R1
+U 1 1 60FA8084
+P 3550 3000
+F 0 "R1" V 3630 3000 50  0000 C CNN
+F 1 "47k" V 3550 3000 50  0000 C CNN
+F 2 "REInnovationFootprint:SM0805" V 3480 3000 50  0001 C CNN
+F 3 "" H 3550 3000 50  0000 C CNN
+F 4 "C17713" H 3550 3000 50  0001 C CNN "LCSC"
+F 5 "Y" H 3550 3000 50  0001 C CNN "JLCPCB Add"
+F 6 "0.0040" H 3550 3000 50  0001 C CNN "JLCPCB Cost"
+	1    3550 3000
+	0    1    1    0   
+$EndComp
+Text Notes 4150 3050 0    60   ~ 0
+0.1% precision \nresistor
+$Comp
+L device:D_Photo D1
+U 1 1 60FA80A1
+P 2600 4000
+F 0 "D1" H 2450 4100 50  0000 C CNN
+F 1 "PHOTO DIODE" H 2700 3900 50  0000 C CNN
+F 2 "REInnovationFootprint:TH_LED-5MM_larg_pad" H 2600 4000 50  0001 C CNN
+F 3 "" H 2600 4000 50  0000 C CNN
+F 4 "~" H 2600 4000 60  0000 C CNN "Notes"
+F 5 "~" H 2600 4000 60  0001 C CNN "Description"
+F 6 "~" H 2600 4000 60  0001 C CNN "Manufacturer"
+F 7 "~" H 2600 4000 60  0001 C CNN "Manufacturer Part No"
+F 8 "~" H 2600 4000 60  0001 C CNN "Supplier 1"
+F 9 "~" H 2600 4000 60  0001 C CNN "Supplier 1 Part No"
+F 10 "~" H 2600 4000 60  0001 C CNN "Supplier 1 Cost"
+F 11 "~" H 2600 4000 60  0001 C CNN "Supplier 2"
+F 12 "~" H 2600 4000 60  0001 C CNN "Supplier 2 Part No"
+F 13 "~" H 2600 4000 60  0001 C CNN "Supplier 2 Cost"
+	1    2600 4000
+	0    1    1    0   
+$EndComp
+$Comp
+L device:C C1
+U 1 1 60FA80AA
+P 3550 2700
+F 0 "C1" H 3575 2800 50  0000 L CNN
+F 1 "10n" H 3575 2600 50  0000 L CNN
+F 2 "REInnovationFootprint:SM_C_0805" H 3588 2550 50  0001 C CNN
+F 3 "" H 3550 2700 50  0000 C CNN
+F 4 "C107135" H 3550 2700 50  0001 C CNN "LCSC"
+F 5 "Y" H 3550 2700 50  0001 C CNN "JLCPCB Add"
+F 6 "0.0105" H 3550 2700 50  0001 C CNN "JLCPCB Cost"
+	1    3550 2700
+	0    1    1    0   
+$EndComp
+Text Notes 6700 4100 0    60   ~ 0
+16 Bit ADC
+$Comp
+L SolarSensorPCB-rescue:ADS1115-matts_components U2
+U 1 1 60FA80B4
+P 6950 3350
+F 0 "U2" H 7000 3837 60  0000 C CNN
+F 1 "ADS1115" H 7000 3731 60  0000 C CNN
+F 2 "REInnovationFootprint:SM_MSOP10-0.5" H 7150 3250 60  0001 C CNN
+F 3 "" H 7150 3250 60  0000 C CNN
+F 4 "C37593" H 6950 3350 50  0001 C CNN "LCSC"
+F 5 "Y" H 6950 3350 50  0001 C CNN "JLCPCB Add"
+F 6 "4.7766" H 6950 3350 50  0001 C CNN "JLCPCB Cost"
+	1    6950 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 3500 6600 3500
+$Comp
+L device:R R2
+U 1 1 60FA80BE
+P 6100 3100
+F 0 "R2" H 6170 3146 50  0000 L CNN
+F 1 "10k" H 6170 3055 50  0000 L CNN
+F 2 "REInnovationFootprint:SM0805" V 6030 3100 50  0001 C CNN
+F 3 "~" H 6100 3100 50  0001 C CNN
+F 4 "C17414" H 6100 3100 50  0001 C CNN "LCSC"
+F 5 "Y" H 6100 3100 50  0001 C CNN "JLCPCB Add"
+F 6 "0.0040" H 6100 3100 50  0001 C CNN "JLCPCB Cost"
+	1    6100 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 3200 6400 3200
+Wire Wire Line
+	6600 3350 6100 3350
+Wire Wire Line
+	6100 3350 6100 3250
+Wire Wire Line
+	6100 2950 6100 2800
+$Comp
+L device:C C3
+U 1 1 60FA80D1
+P 5800 3450
+F 0 "C3" H 5825 3550 50  0000 L CNN
+F 1 "100n" H 5825 3350 50  0000 L CNN
+F 2 "REInnovationFootprint:SM_C_0805" H 5838 3300 50  0001 C CNN
+F 3 "" H 5800 3450 50  0000 C CNN
+F 4 "C49678" H 5800 3450 50  0001 C CNN "LCSC"
+F 5 "Y" H 5800 3450 50  0001 C CNN "JLCPCB Add"
+F 6 "0.0108" H 5800 3450 50  0001 C CNN "JLCPCB Cost"
+	1    5800 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 3200 5800 3300
+Wire Wire Line
+	5800 3600 5800 3750
+$Comp
+L device:R R3
+U 1 1 60FA80E8
+P 6400 3000
+F 0 "R3" H 6470 3046 50  0000 L CNN
+F 1 "10k" H 6470 2955 50  0000 L CNN
+F 2 "REInnovationFootprint:SM0805" V 6330 3000 50  0001 C CNN
+F 3 "~" H 6400 3000 50  0001 C CNN
+F 4 "C38522" H 6400 3000 50  0001 C CNN "LCSC"
+F 5 "Y" H 6400 3000 50  0001 C CNN "JLCPCB Add"
+F 6 "0.0040" H 6400 3000 50  0001 C CNN "JLCPCB Cost"
+	1    6400 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 3500 7800 3500
+Wire Wire Line
+	7800 3500 7800 3600
+Wire Wire Line
+	7800 3600 8050 3600
+Wire Wire Line
+	6400 3200 6400 3150
+Wire Wire Line
+	6400 2850 6400 2650
+Wire Wire Line
+	6400 2650 6600 2650
+Wire Wire Line
+	6600 2650 6600 2700
+Wire Wire Line
+	6500 4250 6500 3650
+Wire Wire Line
+	6500 3650 6600 3650
+Wire Wire Line
+	6600 3800 6550 3800
+Wire Wire Line
+	6550 3800 6550 4400
+$Comp
+L device:C C2
+U 1 1 60FA8102
+P 3900 4750
+F 0 "C2" H 3925 4850 50  0000 L CNN
+F 1 "100n" H 3925 4650 50  0000 L CNN
+F 2 "REInnovationFootprint:SM_C_0805" H 3938 4600 50  0001 C CNN
+F 3 "" H 3900 4750 50  0000 C CNN
+F 4 "C49678" H 3900 4750 50  0001 C CNN "LCSC"
+F 5 "Y" H 3900 4750 50  0001 C CNN "JLCPCB Add"
+F 6 "0.0108" H 3900 4750 50  0001 C CNN "JLCPCB Cost"
+	1    3900 4750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3900 4900 3900 5100
+Wire Wire Line
+	3900 4600 3900 4400
+Wire Wire Line
+	2600 4100 2600 4300
+Wire Wire Line
+	2600 4300 2900 4300
+Wire Wire Line
+	3150 4300 3150 3900
+Wire Wire Line
+	3150 3900 3300 3900
+Wire Wire Line
+	2900 4400 2900 4300
+Connection ~ 2900 4300
+Wire Wire Line
+	2900 4300 3150 4300
+Wire Wire Line
+	2600 3800 2600 3700
+Wire Wire Line
+	2600 3700 3000 3700
+Wire Wire Line
+	3000 3700 3000 3000
+Wire Wire Line
+	3000 3000 3400 3000
+Connection ~ 3000 3700
+Wire Wire Line
+	3000 3700 3300 3700
+Wire Wire Line
+	3700 3000 4050 3000
+Wire Wire Line
+	4050 3000 4050 3800
+Wire Wire Line
+	4050 3800 3900 3800
+Wire Wire Line
+	3400 2700 3000 2700
+Wire Wire Line
+	3000 2700 3000 3000
+Connection ~ 3000 3000
+Wire Wire Line
+	3700 2700 4050 2700
+Wire Wire Line
+	4050 2700 4050 3000
+Connection ~ 4050 3000
+Connection ~ 4050 3800
+$Comp
+L Amplifier_Operational:TSV911xxLx U1
+U 1 1 60FA8130
+P 3600 3800
+AR Path="/60FA8130" Ref="U1"  Part="1" 
+AR Path="/60F87947/60FA8130" Ref="U1"  Part="1" 
+F 0 "U1" H 3944 3846 50  0000 L CNN
+F 1 "TSV911xxLx" H 3700 3650 50  0000 L CNN
+F 2 "REInnovationFootprint:SM_SOT-23-5" H 3500 3600 50  0001 L CNN
+F 3 "www.st.com/resource/en/datasheet/tsv911.pdf" H 3600 4000 50  0001 C CNN
+F 4 "C361052" H 3600 3800 50  0001 C CNN "LCSC"
+F 5 "Y" H 3600 3800 50  0001 C CNN "JLCPCB Add"
+F 6 "0.4576" H 3600 3800 50  0001 C CNN "JLCPCB Cost"
+	1    3600 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 4250 3500 4100
+Wire Wire Line
+	3500 3500 3500 3400
+$Comp
+L Connector_Generic:Conn_01x04 J1
+U 1 1 60FA8144
+P 8150 4250
+F 0 "J1" H 8230 4242 50  0000 L CNN
+F 1 "ADC" H 8230 4151 50  0000 L CNN
+F 2 "REInnovationFootprint:SIL-4_large_pad" H 8150 4250 50  0001 C CNN
+F 3 "~" H 8150 4250 50  0001 C CNN
+	1    8150 4250
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	7750 4350 7750 4400
+Wire Wire Line
+	7850 4050 7600 4050
+Wire Wire Line
+	7600 4050 7600 3650
+Wire Wire Line
+	7600 3650 7400 3650
+Wire Wire Line
+	7400 3800 7500 3800
+Wire Wire Line
+	7500 3800 7500 4150
+Wire Wire Line
+	7400 3350 8350 3350
+Wire Wire Line
+	7400 3200 8350 3200
+Text Notes 2200 5100 0    60   ~ 0
+Irradiance sensor + amplifier
+Text Notes 7300 5000 0    60   ~ 0
+We can measure two more \nanalog pins here, if needed.
+Wire Wire Line
+	4700 4400 6550 4400
+Wire Wire Line
+	5050 3800 5050 4250
+Wire Wire Line
+	5050 4250 6500 4250
+Wire Wire Line
+	4050 3800 5050 3800
+Wire Wire Line
+	7900 4150 7900 4050
+Wire Wire Line
+	7900 4050 7950 4050
+Wire Wire Line
+	7500 4150 7900 4150
+Wire Wire Line
+	7850 4050 7850 4100
+Wire Wire Line
+	7850 4100 7950 4100
+Wire Wire Line
+	7950 4100 7950 4150
+Wire Wire Line
+	7400 4250 7950 4250
+Wire Wire Line
+	7750 4350 7950 4350
+Text HLabel 3900 4400 2    60   Input ~ 0
+Vcc
+Text HLabel 3900 5100 2    60   Input ~ 0
+GND
+Text HLabel 3500 4250 2    60   Input ~ 0
+GND
+Text HLabel 2900 4400 2    60   Input ~ 0
+GND
+Text HLabel 6400 3500 0    60   Input ~ 0
+GND
+Text HLabel 4700 4400 0    60   Input ~ 0
+GND
+Text HLabel 7750 4400 0    60   Input ~ 0
+GND
+Text HLabel 5800 3750 0    60   Input ~ 0
+GND
+Text HLabel 6600 2700 2    60   Input ~ 0
+GND
+Text HLabel 3500 3400 2    60   Input ~ 0
+Vcc
+Text HLabel 5800 3200 0    60   Input ~ 0
+Vcc
+Text HLabel 6100 2800 0    60   Input ~ 0
+Vcc
+Text HLabel 7400 4250 0    60   Input ~ 0
+Vcc
+Text HLabel 8050 3600 2    60   Input ~ 0
+Vcc
+$Comp
+L Analog_ADC:MCP3426-xSN U?
+U 1 1 60F55AC8
+P 7950 2300
+F 0 "U?" H 7950 2881 50  0000 C CNN
+F 1 "MCP3426-xSN" H 7950 2790 50  0000 C CNN
+F 2 "" H 7950 2300 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22226a.pdf" H 7950 2300 50  0001 C CNN
+	1    7950 2300
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

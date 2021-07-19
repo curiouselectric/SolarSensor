@@ -819,12 +819,12 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x04 J2
 U 1 1 60E3FE6C
-P 6850 4700
-F 0 "J2" H 6930 4692 50  0000 L CNN
-F 1 "ADC" H 6930 4601 50  0000 L CNN
-F 2 "REInnovationFootprint:SIL-4_large_pad" H 6850 4700 50  0001 C CNN
-F 3 "~" H 6850 4700 50  0001 C CNN
-	1    6850 4700
+P 6950 4700
+F 0 "J2" H 7030 4692 50  0000 L CNN
+F 1 "ADC" H 7030 4601 50  0000 L CNN
+F 2 "REInnovationFootprint:SIL-4_large_pad" H 6950 4700 50  0001 C CNN
+F 3 "~" H 6950 4700 50  0001 C CNN
+	1    6950 4700
 	1    0    0    1   
 $EndComp
 $Comp
@@ -850,8 +850,6 @@ F 3 "" H 6550 4850 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6650 4800 6550 4800
-Wire Wire Line
 	6550 4800 6550 4850
 Wire Wire Line
 	6200 4650 6200 4700
@@ -865,8 +863,6 @@ Wire Wire Line
 	6200 4250 6300 4250
 Wire Wire Line
 	6300 4250 6300 4600
-Wire Wire Line
-	6300 4600 6650 4600
 $Comp
 L Sensor_Temperature:LM75B U2
 U 1 1 60E52C75
@@ -984,7 +980,7 @@ L Connector_Generic:Conn_01x04 P1
 U 1 1 60EBFB0A
 P 10050 5550
 F 0 "P1" H 10050 5800 50  0000 C CNN
-F 1 "I2C_OLED" V 10150 5550 50  0000 C CNN
+F 1 "I2C" V 10150 5550 50  0000 C CNN
 F 2 "REInnovationFootprint:SIL-4_large_pad" H 10050 5550 50  0001 C CNN
 F 3 "" H 10050 5550 50  0000 C CNN
 	1    10050 5550
@@ -1078,5 +1074,19 @@ Wire Wire Line
 Wire Wire Line
 	2850 4250 3850 4250
 Wire Wire Line
-	6200 4700 6650 4700
+	6700 4600 6700 4500
+Wire Wire Line
+	6700 4500 6750 4500
+Wire Wire Line
+	6300 4600 6700 4600
+Wire Wire Line
+	6650 4500 6650 4550
+Wire Wire Line
+	6650 4550 6750 4550
+Wire Wire Line
+	6750 4550 6750 4600
+Wire Wire Line
+	6200 4700 6750 4700
+Wire Wire Line
+	6550 4800 6750 4800
 $EndSCHEMATC

@@ -5,4 +5,7 @@
   (lib (name 74xx)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/74xx.lib")(options "")(descr ""))
   (lib (name audio)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/audio.lib")(options "")(descr ""))
   (lib (name interface)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/interface.lib")(options "")(descr ""))
+  (lib (name Amplifier_Difference)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/Amplifier_Difference.lib")(options "")(descr ""))
+  (lib (name Amplifier_Operational)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/Amplifier_Operational.lib")(options "")(descr ""))
+  (lib (name Analog_ADC)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/Analog_ADC.lib")(options "")(descr ""))
 )
