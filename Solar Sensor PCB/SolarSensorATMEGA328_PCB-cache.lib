@@ -248,25 +248,6 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# device_D_Photo
-#
-DEF device_D_Photo D 0 20 N N 1 F N
-F0 "D" 20 70 50 H V L CNN
-F1 "device_D_Photo" -40 -110 50 H V C CNN
-F2 "" -50 0 50 H I C CNN
-F3 "" -50 0 50 H I C CNN
-DRAW
-P 2 0 1 10 -100 50 -100 -50 N
-P 2 0 1 0 -80 70 -60 70 N
-P 2 0 1 0 0 0 -100 0 N
-P 3 0 1 0 -20 130 -80 70 -80 90 N
-P 4 0 1 10 0 -50 0 50 -100 0 0 -50 N
-P 5 0 1 0 30 130 -30 70 -30 90 -30 70 -10 70 N
-X K 1 -200 0 100 R 50 50 1 1 P
-X A 2 100 0 100 L 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
 # device_R
 #
 DEF device_R R 0 0 N Y 1 F N
@@ -346,6 +327,27 @@ X 3 3 -400 50 300 R 60 60 1 1 P I
 X 4 4 400 50 300 L 60 60 1 1 P I
 X 5 5 -400 -50 300 R 60 60 1 1 P I
 X 6 6 400 -50 300 L 60 60 1 1 P I
+ENDDRAW
+ENDDEF
+#
+# matts_components_LED
+#
+DEF matts_components_LED D 0 40 Y N 1 F N
+F0 "D" 0 100 50 H V C CNN
+F1 "matts_components_LED" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H V C CNN
+F3 "" 0 0 50 H V C CNN
+$FPLIST
+ LED-*
+ LED_*
+$ENDFPLIST
+DRAW
+P 2 0 1 0 -50 50 -50 -50 N
+P 3 0 1 0 -80 -25 -125 -65 -120 -40 N
+P 3 0 1 0 -65 -40 -110 -80 -105 -55 N
+P 3 0 1 0 50 50 -50 0 50 -50 F
+X A 1 200 0 150 L 40 40 1 1 P
+X K 2 -200 0 150 R 40 40 1 1 P
 ENDDRAW
 ENDDEF
 #

@@ -1,4 +1,4 @@
-651891903865635
+671650907968487
 CuriousElectric3
 2019_011_16_CuriousElectricCompany_Logo_Round_Logo_No_words_KiCAD
 
@@ -189,6 +189,41 @@ LED
 0
 0
 REInnovationFootprint
+4_Way_Connector_3V3_SUPPLY
+
+
+0
+4
+4
+REInnovationFootprint
+4_Way_Connector_5V_SUPPLY
+
+
+0
+4
+4
+REInnovationFootprint
+4_Way_Connector_ANALOG_2
+
+
+0
+4
+4
+REInnovationFootprint
+4_Way_Connector_DIGITAL_2
+
+
+0
+4
+4
+REInnovationFootprint
+4_Way_Connector_GROUND
+
+
+0
+4
+4
+REInnovationFootprint
 7SEG_CA_SA18-11
 10 pins DIL package, elliptical pads
 DIL
@@ -223,6 +258,13 @@ ADS1115_Size
 0
 2
 2
+REInnovationFootprint
+BREADBOARD_55x85
+
+
+0
+0
+0
 REInnovationFootprint
 Batt_Connector_Strain_Relief
 Connecteurs 2 pins
@@ -1070,6 +1112,13 @@ PCB_Nano_4xLED_PCB_Outline
 0
 4
 4
+REInnovationFootprint
+PCB_SOLAR_EXPLORER
+
+
+0
+0
+0
 REInnovationFootprint
 PCB_Sensor_Board_External_Connectors
 
@@ -2100,6 +2149,13 @@ SOT23
 3
 3
 REInnovationFootprint
+SOT23_ZENER
+
+SOT23
+0
+3
+3
+REInnovationFootprint
 SOT223
 SOT89
 
@@ -2143,6 +2199,13 @@ SWITCH DEV
 5
 REInnovationFootprint
 SolarDicePCB
+
+
+0
+0
+0
+REInnovationFootprint
+Solar_Explorer_Logo
 
 
 0
@@ -2646,6 +2709,13 @@ CONN DEV
 2
 2
 REInnovationFootprint
+TH_SIL-6_large_pads
+Connecteur 7 pins
+CONN DEV
+0
+6
+6
+REInnovationFootprint
 TH_SIL-7_large_pads
 Connecteur 7 pins
 CONN DEV
@@ -2948,6 +3018,20 @@ PH_LOGO_MODLEVEL
 0
 REInnovationGraphics
 PH_LOGO_NO_Pb
+
+
+0
+0
+0
+REInnovationGraphics
+lapseomatic logo
+
+
+0
+0
+0
+REInnovationGraphics
+lapseomatic logo_20x6mm
 
 
 0

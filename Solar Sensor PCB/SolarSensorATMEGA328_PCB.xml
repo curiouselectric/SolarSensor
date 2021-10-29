@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>G:\My Drive\Work - Kits\PRODUCTS\Prototype\Solar Sensor\SolarSensor\Solar Sensor PCB\SolarSensorATMEGA328_PCB.sch</source>
+    <date>20/08/2021 17:50:19</date>
+    <tool>Eeschema (5.1.10)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>SolarSensorATMEGA328_PCB.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/PhotoDiodeSensorMCP3426/" tstamps="/60F87947/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>PhotoDiodeSensorMCP3426.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/LM75TempSensor/" tstamps="/60FC880C/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>LM75TempSensor.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="4" name="/ATMega328/" tstamps="/60FF06B8/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>atmega328.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="P5">
+      <value>LOGO2</value>
+      <footprint>CuriousElectric3:TCEC_Words_13mm</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59012D3E</tstamp>
+    </comp>
+    <comp ref="P6">
+      <value>PCB</value>
+      <footprint>REInnovationFootprint:PCB_45_45_Cut_Out_Solar_Sensor</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59012DA7</tstamp>
+    </comp>
+    <comp ref="P7">
+      <value>ENC</value>
+      <datasheet>https://www.rapidonline.com/pdf/30-3800e.pdf</datasheet>
+      <fields>
+        <field name="Description">~</field>
+        <field name="Manufacturer">~</field>
+        <field name="Manufacturer Part No">~</field>
+        <field name="Notes">~</field>
+        <field name="Supplier 1">Rapid</field>
+        <field name="Supplier 1 Cost">4.37</field>
+        <field name="Supplier 1 Part No">30-3804</field>
+        <field name="Supplier 2">~</field>
+        <field name="Supplier 2 Cost">~</field>
+        <field name="Supplier 2 Part No">~</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>59012E13</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>I2C</value>
+      <footprint>REInnovationFootprint:SIL-4_Grove_Not_Labelled</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60EBFB0A</tstamp>
+    </comp>
+    <comp ref="P2">
+      <value>SERIAL</value>
+      <footprint>REInnovationFootprint:SIL-4_Grove_SCREW</footprint>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60F54143</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>47k</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0040</field>
+        <field name="LCSC">C17713</field>
+      </fields>
+      <libsource lib="device" part="R" description="Resistor"/>
+      <sheetpath names="/PhotoDiodeSensorMCP3426/" tstamps="/60F87947/"/>
+      <tstamp>60FA8084</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>PHOTO DIODE</value>
+      <footprint>REInnovationFootprint:TH_LED-5MM_larg_pad</footprint>
+      <fields>
+        <field name="Description">~</field>
+        <field name="Manufacturer">~</field>
+        <field name="Manufacturer Part No">~</field>
+        <field name="Notes">~</field>
+        <field name="Supplier 1">Rapid</field>
+        <field name="Supplier 1 Code">58-0470</field>
+        <field name="Supplier 1 Cost">1.22</field>
+        <field name="Supplier 1 Part No">~</field>
+        <field name="Supplier 1 Web">https://www.rapidonline.com/osram-q62702-p0955-sfh203-t1-3-4-photodiode-unfiltered-58-0470</field>
+        <field name="Supplier 2">~</field>
+        <field name="Supplier 2 Cost">~</field>
+        <field name="Supplier 2 Part No">~</field>
+      </fields>
+      <libsource lib="device" part="D_Photo" description="Photodiode"/>
+      <sheetpath names="/PhotoDiodeSensorMCP3426/" tstamps="/60F87947/"/>
+      <tstamp>60FA80A1</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>10n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0105</field>
+        <field name="LCSC">C107135</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/PhotoDiodeSensorMCP3426/" tstamps="/60F87947/"/>
+      <tstamp>60FA80AA</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0108</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/PhotoDiodeSensorMCP3426/" tstamps="/60F87947/"/>
+      <tstamp>60FA80D1</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0108</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/PhotoDiodeSensorMCP3426/" tstamps="/60F87947/"/>
+      <tstamp>60FA8102</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>TSV911xxLx</value>
+      <footprint>REInnovationFootprint:SM_SOT-23-5</footprint>
+      <datasheet>www.st.com/resource/en/datasheet/tsv911.pdf</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.4576</field>
+        <field name="LCSC">C361052</field>
+      </fields>
+      <libsource lib="Amplifier_Operational" part="TSV911xxLx" description="Single rail-to-rail input/output 8 MHz operational amplifiers, SOT-23-5"/>
+      <sheetpath names="/PhotoDiodeSensorMCP3426/" tstamps="/60F87947/"/>
+      <tstamp>60FA8130</tstamp>
+    </comp>
+    <comp ref="P8">
+      <value>ADC</value>
+      <footprint>REInnovationFootprint:SIL-4_large_pad</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/PhotoDiodeSensorMCP3426/" tstamps="/60F87947/"/>
+      <tstamp>60FA8144</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>MCP3426-xSN</value>
+      <footprint>REInnovationFootprint:SM_SOIC_8</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/22226a.pdf</datasheet>
+      <fields>
+        <field name="Supplier 1">RS</field>
+        <field name="Supplier 1 Code">703-7958</field>
+        <field name="Supplier 1 Cost">2.51</field>
+        <field name="Supplier 1 Web">https://uk.rs-online.com/web/p/analogue-to-digital-converters/7037958/</field>
+      </fields>
+      <libsource lib="Analog_ADC" part="MCP3426-xSN" description="16-Bit, Multi-Channel ΔΣ Analog-to-Digital Converter with I2C Interface and On-Board Reference, SOIC-8"/>
+      <sheetpath names="/PhotoDiodeSensorMCP3426/" tstamps="/60F87947/"/>
+      <tstamp>60F55AC8</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>LM75B</value>
+      <footprint>REInnovationFootprint:SM_SOIC_8</footprint>
+      <datasheet>http://www.ti.com/lit/ds/symlink/lm75b.pdf</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.3457</field>
+        <field name="LCSC">C34565</field>
+      </fields>
+      <libsource lib="Sensor_Temperature" part="LM75B" description="Digital Temperature Sensor &amp; Thermal Watchdog with LP on I2C and bus fault timeout, SOIC-8 and VSSOP-8"/>
+      <sheetpath names="/LM75TempSensor/" tstamps="/60FC880C/"/>
+      <tstamp>60FE1B6D</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0108</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/LM75TempSensor/" tstamps="/60FC880C/"/>
+      <tstamp>60FE1B8A</tstamp>
+    </comp>
+    <comp ref="U4">
+      <value>ATmega328P-AU</value>
+      <footprint>REInnovationFootprint:TQFP32-08</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">1.2649</field>
+        <field name="LCSC">C14877</field>
+        <field name="Manufacturer">ATMEL</field>
+        <field name="Manufacturer Part">ATMEGA328P-AU</field>
+        <field name="Supplier 1">Farnell</field>
+      </fields>
+      <libsource lib="matts_components" part="ATmega328P-AU-MCU_Microchip_ATmega" description=""/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEE05</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>4k7</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0031</field>
+        <field name="LCSC">C17673</field>
+        <field name="Manufacturer Part">MC01W080554K7</field>
+        <field name="Supplier 1">Farnell</field>
+        <field name="Supplier 1 Code">9334580</field>
+        <field name="Supplier 1 Cost">0.01</field>
+        <field name="Supplier 1 Web">https://uk.farnell.com/multicomp/mc01w080554k7/res-4k7-5-0-1w-0805-thick-film/dp/9334580?st=0805%20resistor%204k7</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEE2F</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>10k</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0029</field>
+        <field name="LCSC">C17414</field>
+        <field name="Manufacturer Part">MCMR08X1002FTL</field>
+        <field name="Supplier 1">Farnell</field>
+        <field name="Supplier 1 Code">2073607</field>
+        <field name="Supplier 1 Cost">0.02</field>
+        <field name="Supplier 1 Web">https://uk.farnell.com/multicomp/mcmr08x1002ftl/res-10k-1-0-125w-0805-ceramic/dp/2073607?st=0805%20resistor%2010k</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEE3D</tstamp>
+    </comp>
+    <comp ref="P3">
+      <value>ID</value>
+      <footprint>REInnovationFootprint:SM_6pad_3W_SOLDER</footprint>
+      <fields>
+        <field name="Manufacturer">Valcon</field>
+        <field name="Supplier 1">Toby Electronics</field>
+        <field name="Supplier 1 Code">THD-03-R</field>
+        <field name="Supplier 1 Cost">0.05</field>
+        <field name="Supplier 1 Web">https://www.toby.co.uk/board-to-board-pcb-connectors/254mm-headers/thd-valcon-2.54mm-pitch-dual-row-pin-header/</field>
+      </fields>
+      <libsource lib="matts_components" part="ISP_3X2" description=""/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEE6D</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>SWA</value>
+      <footprint>REInnovationFootprint:SMD_SW_6x3_5</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0194</field>
+        <field name="LCSC">C412368</field>
+        <field name="Manufacturer Part">147873-1</field>
+        <field name="Supplier 1">Farnell</field>
+        <field name="Supplier 1 Code">2610942</field>
+        <field name="Supplier 1 Cost">0.236</field>
+        <field name="Supplier 1 Web">https://uk.farnell.com/alcoswitch-te-connectivity/147873-1/tactile-switch-spst-0-05a-24v/dp/2610942</field>
+      </fields>
+      <libsource lib="matts_components" part="SW_PUSH" description=""/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEE95</tstamp>
+    </comp>
+    <comp ref="Y1">
+      <value>8MHz_XTAL</value>
+      <footprint>REInnovationFootprint:SM-crystal-HC49UP</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0425</field>
+        <field name="LCSC">C12674</field>
+        <field name="Manufacturer Part">LFXTAL058154</field>
+        <field name="Supplier 1">Farnell</field>
+        <field name="Supplier 1 Code">2832071</field>
+        <field name="Supplier 1 Cost">0.5952</field>
+        <field name="Supplier 1 Web">https://uk.farnell.com/iqd-frequency-products/lfxtal058154/crystal-8mhz-18pf-11-4mm-x-4-9mm/dp/2832071?st=hc49%208mhz</field>
+      </fields>
+      <libsource lib="Device" part="Crystal" description="Two pin crystal"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEEA6</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>LED0</value>
+      <footprint>REInnovationFootprint:SM0805_LED</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0102</field>
+        <field name="LCSC">C2296</field>
+        <field name="Manufacturer Part">MC011368</field>
+        <field name="Supplier 1">Farnell</field>
+        <field name="Supplier 1 Code">3015159</field>
+        <field name="Supplier 1 Cost">0.0834</field>
+        <field name="Supplier 1 Web">https://uk.farnell.com/multicomp-pro/mc011368/led-orange-red-150mcd-620nm-0805/dp/3015159</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEEC0</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>470</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0030</field>
+        <field name="LCSC">C17710</field>
+        <field name="Manufacturer Part">MCWR08X4700FTL</field>
+        <field name="Supplier 1">Farnell</field>
+        <field name="Supplier 1 Code">2447662</field>
+        <field name="Supplier 1 Cost">0.0077</field>
+        <field name="Supplier 1 Web">https://uk.farnell.com/multicomp/mcwr08x4700ftl/res-470r-1-0-125w-thick-film/dp/2447662?st=470r%200805</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEECE</tstamp>
+    </comp>
+    <comp ref="SW2">
+      <value>RST</value>
+      <footprint>REInnovationFootprint:SMD_SW_6x3_5</footprint>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0194</field>
+        <field name="LCSC">C412368</field>
+        <field name="Manufacturer Part">147873-1</field>
+        <field name="Supplier 1">Farnell</field>
+        <field name="Supplier 1 Code">2610942</field>
+        <field name="Supplier 1 Cost">0.236</field>
+        <field name="Supplier 1 Web">https://uk.farnell.com/alcoswitch-te-connectivity/147873-1/tactile-switch-spst-0-05a-24v/dp/2610942</field>
+      </fields>
+      <libsource lib="matts_components" part="SW_PUSH" description=""/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEF00</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>4k7</value>
+      <footprint>REInnovationFootprint:SM0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="JLCPCB Cost">0.0031</field>
+        <field name="LCSC">C17673</field>
+        <field name="Manufacturer Part">MC01W080554K7</field>
+        <field name="Supplier 1">Farnell</field>
+        <field name="Supplier 1 Code">9334580</field>
+        <field name="Supplier 1 Cost">0.01</field>
+        <field name="Supplier 1 Web">https://uk.farnell.com/multicomp/mc01w080554k7/res-4k7-5-0-1w-0805-thick-film/dp/9334580?st=0805%20resistor%204k7</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEF2E</tstamp>
+    </comp>
+    <comp ref="P4">
+      <value>ISP</value>
+      <footprint>REInnovationFootprint:ISP_3x2</footprint>
+      <libsource lib="matts_components" part="ISP_3X2" description=""/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEF34</tstamp>
+    </comp>
+    <comp ref="C10">
+      <value>22p</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="LCSC">C1804</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>6105B9E6</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>22p</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="LCSC">C1804</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>6105C39C</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>61064A37</tstamp>
+    </comp>
+    <comp ref="P10">
+      <value>I2C</value>
+      <footprint>REInnovationFootprint:SIL-4_Grove_Not_Labelled</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>61070D8C</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>610811F3</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>100u</value>
+      <footprint>REInnovationFootprint:SM_6.3x7.7</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="LCSC">C164071</field>
+      </fields>
+      <libsource lib="Device" part="CP" description="Polarized capacitor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>610819A4</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>100n</value>
+      <footprint>REInnovationFootprint:SM_C_0805</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="JLCPCB Add">Y</field>
+        <field name="LCSC">C49678</field>
+      </fields>
+      <libsource lib="device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60F36418</tstamp>
+    </comp>
+    <comp ref="P9">
+      <value>PROG</value>
+      <footprint>REInnovationFootprint:TH_6x1_FTDI</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector_Generic" part="Conn_01x06" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/ATMega328/" tstamps="/60FF06B8/"/>
+      <tstamp>60FFEDA9</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Amplifier_Operational" part="MCP6L91T-EOT">
+      <aliases>
+        <alias>MCP6401T-xOT</alias>
+        <alias>MCP6001-OT</alias>
+        <alias>MCP601-xOT</alias>
+        <alias>OPA333xxDBV</alias>
+        <alias>OPA340NA</alias>
+        <alias>OPA376xxDBV</alias>
+        <alias>TS881xLx</alias>
+        <alias>TSV911xxLx</alias>
+        <alias>OPA330xxDBV</alias>
+        <alias>OPA356xxDBV</alias>
+        <alias>LMH6702MF</alias>
+        <alias>LMH6609MF</alias>
+        <alias>TLV2371DBV</alias>
+        <alias>OPA842xDBV</alias>
+        <alias>OPA843xDBV</alias>
+        <alias>OPA846xDBV</alias>
+        <alias>LT6015xS5</alias>
+        <alias>OPA197xDBV</alias>
+        <alias>OPA196xDBV</alias>
+        <alias>LPV811DBV</alias>
+        <alias>MCP6L01x-xOT</alias>
+        <alias>OPA365xxDBV</alias>
+      </aliases>
+      <description>10 MHz, 850 µA Op Amps, SOT-23-5</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/22141b.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MCP6L91T-EOT</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="output"/>
+        <pin num="2" name="V-" type="power_in"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="-" type="input"/>
+        <pin num="5" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Analog_ADC" part="MCP3426-xMS">
+      <aliases>
+        <alias>MCP3426-xSN</alias>
+      </aliases>
+      <description>16-Bit, Multi-Channel ΔΣ Analog-to-Digital Converter with I2C Interface and On-Board Reference, MSOP-8</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/22226a.pdf</docs>
+      <footprints>
+        <fp>MSOP*3x3mm*P0.65mm*</fp>
+        <fp>SOIC*3.9x4.9mm*P1.27mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MCP3426-xMS</field>
+      </fields>
+      <pins>
+        <pin num="1" name="CH1+" type="input"/>
+        <pin num="2" name="CH1-" type="input"/>
+        <pin num="3" name="VDD" type="power_in"/>
+        <pin num="4" name="SDA" type="BiDi"/>
+        <pin num="5" name="SCL" type="input"/>
+        <pin num="6" name="VSS" type="power_in"/>
+        <pin num="7" name="CH2+" type="input"/>
+        <pin num="8" name="CH2-" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x01">
+      <description>Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x01</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x06">
+      <description>Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x06</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="CP">
+      <description>Polarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Crystal">
+      <description>Two pin crystal</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Crystal*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Sensor_Temperature" part="LM75C">
+      <aliases>
+        <alias>LM75B</alias>
+      </aliases>
+      <description> Digital Temperature Sensor &amp; Thermal Watchdog, SOIC-8 and VSSOP-8</description>
+      <docs>http://www.ti.com/lit/ds/symlink/lm75b.pdf</docs>
+      <footprints>
+        <fp>SOIC*3.9x4.9mm*P1.27mm*</fp>
+        <fp>VSSOP*3.0x3.0mm*P0.65mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LM75C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="SDA" type="BiDi"/>
+        <pin num="2" name="SCL" type="input"/>
+        <pin num="3" name="O.S." type="openCol"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="A2" type="input"/>
+        <pin num="6" name="A1" type="input"/>
+        <pin num="7" name="A0" type="input"/>
+        <pin num="8" name="+Vs" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="D_Photo">
+      <description>Photodiode</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Photo</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="matts_components" part="ATmega328P-AU-MCU_Microchip_ATmega">
+      <footprints>
+        <fp>TQFP*7x7mm*P0.8mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATmega328P-AU-MCU_Microchip_ATmega</field>
+        <field name="Footprint">Package_QFP:TQFP-32_7x7mm_P0.8mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="PD3" type="BiDi"/>
+        <pin num="2" name="PD4" type="BiDi"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="VCC" type="power_in"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="VCC" type="power_in"/>
+        <pin num="7" name="XTAL1/PB6" type="BiDi"/>
+        <pin num="8" name="XTAL2/PB7" type="BiDi"/>
+        <pin num="9" name="PD5" type="BiDi"/>
+        <pin num="10" name="PD6" type="BiDi"/>
+        <pin num="11" name="PD7" type="BiDi"/>
+        <pin num="12" name="PB0" type="BiDi"/>
+        <pin num="13" name="PB1" type="BiDi"/>
+        <pin num="14" name="PB2" type="BiDi"/>
+        <pin num="15" name="PB3" type="BiDi"/>
+        <pin num="16" name="PB4" type="BiDi"/>
+        <pin num="17" name="PB5" type="BiDi"/>
+        <pin num="18" name="AVCC" type="power_in"/>
+        <pin num="19" name="ADC6" type="input"/>
+        <pin num="20" name="AREF" type="passive"/>
+        <pin num="21" name="GND" type="power_in"/>
+        <pin num="22" name="ADC7" type="input"/>
+        <pin num="23" name="PC0" type="BiDi"/>
+        <pin num="24" name="PC1" type="BiDi"/>
+        <pin num="25" name="PC2" type="BiDi"/>
+        <pin num="26" name="PC3" type="BiDi"/>
+        <pin num="27" name="PC4" type="BiDi"/>
+        <pin num="28" name="PC5" type="BiDi"/>
+        <pin num="29" name="~RESET~/PC6" type="BiDi"/>
+        <pin num="30" name="PD0" type="BiDi"/>
+        <pin num="31" name="PD1" type="BiDi"/>
+        <pin num="32" name="PD2" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="matts_components" part="ISP_3X2">
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">ISP_3X2</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="matts_components" part="SW_PUSH">
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_PUSH</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Amplifier_Operational">
+      <uri>C:/Program Files/KiCad/share/kicad/library/Amplifier_Operational.lib</uri>
+    </library>
+    <library logical="Analog_ADC">
+      <uri>C:/Program Files/KiCad/share/kicad/library/Analog_ADC.lib</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Connector_Generic.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+    </library>
+    <library logical="Sensor_Temperature">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Sensor_Temperature.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>C:/Program Files/KiCad/share/kicad/library/device.lib</uri>
+    </library>
+    <library logical="matts_components">
+      <uri>G:/My Drive/KiCAD/kicad_reinnovation/KiCad My Libraries/matts_components.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="VCC">
+      <node ref="U2" pin="3"/>
+      <node ref="P4" pin="2"/>
+      <node ref="R6" pin="1"/>
+      <node ref="C7" pin="2"/>
+      <node ref="P8" pin="2"/>
+      <node ref="C6" pin="1"/>
+      <node ref="P1" pin="3"/>
+      <node ref="P2" pin="3"/>
+      <node ref="C4" pin="2"/>
+      <node ref="U4" pin="18"/>
+      <node ref="U4" pin="4"/>
+      <node ref="U3" pin="8"/>
+      <node ref="U1" pin="5"/>
+      <node ref="C3" pin="1"/>
+      <node ref="C2" pin="2"/>
+      <node ref="P10" pin="3"/>
+      <node ref="R5" pin="1"/>
+      <node ref="R7" pin="1"/>
+      <node ref="U4" pin="6"/>
+      <node ref="P9" pin="3"/>
+    </net>
+    <net code="2" name="/Tx">
+      <node ref="U4" pin="31"/>
+      <node ref="P9" pin="5"/>
+      <node ref="P2" pin="1"/>
+    </net>
+    <net code="3" name="/Rx">
+      <node ref="P9" pin="4"/>
+      <node ref="P2" pin="2"/>
+      <node ref="U4" pin="30"/>
+    </net>
+    <net code="4" name="/I2C_CLK">
+      <node ref="U2" pin="5"/>
+      <node ref="P10" pin="1"/>
+      <node ref="U3" pin="2"/>
+      <node ref="U4" pin="28"/>
+      <node ref="R7" pin="2"/>
+      <node ref="P1" pin="1"/>
+    </net>
+    <net code="5" name="Net-(P5-Pad1)">
+      <node ref="P5" pin="1"/>
+    </net>
+    <net code="6" name="/I2C_SDA">
+      <node ref="P1" pin="2"/>
+      <node ref="U3" pin="1"/>
+      <node ref="U4" pin="27"/>
+      <node ref="U2" pin="4"/>
+      <node ref="R6" pin="2"/>
+      <node ref="P10" pin="2"/>
+    </net>
+    <net code="7" name="Net-(P6-Pad1)">
+      <node ref="P6" pin="1"/>
+    </net>
+    <net code="8" name="Net-(P7-Pad1)">
+      <node ref="P7" pin="1"/>
+    </net>
+    <net code="9" name="/ATMega328/SCLK">
+      <node ref="U4" pin="17"/>
+      <node ref="P4" pin="3"/>
+    </net>
+    <net code="10" name="/ATMega328/MISO">
+      <node ref="P4" pin="1"/>
+      <node ref="U4" pin="16"/>
+    </net>
+    <net code="11" name="/ATMega328/MOSI">
+      <node ref="P4" pin="4"/>
+      <node ref="U4" pin="15"/>
+    </net>
+    <net code="12" name="/ATMega328/D10">
+      <node ref="U4" pin="14"/>
+    </net>
+    <net code="14" name="/ATMega328/D8_SWA">
+      <node ref="U4" pin="12"/>
+      <node ref="SW1" pin="1"/>
+    </net>
+    <net code="15" name="/ATMega328/A7">
+      <node ref="U4" pin="22"/>
+    </net>
+    <net code="16" name="/ATMega328/A6">
+      <node ref="U4" pin="19"/>
+    </net>
+    <net code="17" name="/ATMega328/A3">
+      <node ref="U4" pin="26"/>
+    </net>
+    <net code="18" name="/ATMega328/A1">
+      <node ref="P3" pin="3"/>
+      <node ref="U4" pin="24"/>
+    </net>
+    <net code="19" name="/ATMega328/A2">
+      <node ref="P3" pin="5"/>
+      <node ref="U4" pin="25"/>
+    </net>
+    <net code="20" name="/ATMega328/D2">
+      <node ref="U4" pin="32"/>
+    </net>
+    <net code="21" name="/ATMega328/D3">
+      <node ref="U4" pin="1"/>
+    </net>
+    <net code="22" name="/ATMega328/D5">
+      <node ref="U4" pin="9"/>
+    </net>
+    <net code="23" name="/ATMega328/D6">
+      <node ref="U4" pin="10"/>
+    </net>
+    <net code="24" name="/ATMega328/D7_LED0">
+      <node ref="R4" pin="1"/>
+      <node ref="U4" pin="11"/>
+    </net>
+    <net code="25" name="/ATMega328/A0">
+      <node ref="U4" pin="23"/>
+      <node ref="P3" pin="1"/>
+    </net>
+    <net code="26" name="/ATMega328/D4">
+      <node ref="U4" pin="2"/>
+    </net>
+    <net code="27" name="Net-(P8-Pad3)">
+      <node ref="P8" pin="3"/>
+      <node ref="U2" pin="8"/>
+    </net>
+    <net code="28" name="Net-(P8-Pad4)">
+      <node ref="U2" pin="7"/>
+      <node ref="P8" pin="4"/>
+    </net>
+    <net code="29" name="Net-(C1-Pad1)">
+      <node ref="U1" pin="1"/>
+      <node ref="R1" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="U2" pin="1"/>
+    </net>
+    <net code="30" name="Net-(C1-Pad2)">
+      <node ref="R1" pin="2"/>
+      <node ref="U1" pin="3"/>
+      <node ref="D1" pin="1"/>
+      <node ref="C1" pin="2"/>
+    </net>
+    <net code="31" name="Net-(U3-Pad3)">
+      <node ref="U3" pin="3"/>
+    </net>
+    <net code="32" name="Net-(D2-Pad2)">
+      <node ref="D2" pin="2"/>
+      <node ref="R4" pin="2"/>
+    </net>
+    <net code="33" name="/ATMega328/D9">
+      <node ref="U4" pin="13"/>
+    </net>
+    <net code="34" name="/ATMega328/DTR">
+      <node ref="C8" pin="1"/>
+      <node ref="P9" pin="6"/>
+    </net>
+    <net code="35" name="Net-(C5-Pad2)">
+      <node ref="C5" pin="2"/>
+      <node ref="U4" pin="20"/>
+    </net>
+    <net code="36" name="Net-(C10-Pad2)">
+      <node ref="Y1" pin="2"/>
+      <node ref="C10" pin="2"/>
+      <node ref="U4" pin="8"/>
+    </net>
+    <net code="37" name="Net-(C9-Pad2)">
+      <node ref="C9" pin="2"/>
+      <node ref="U4" pin="7"/>
+      <node ref="Y1" pin="1"/>
+    </net>
+    <net code="38" name="GND">
+      <node ref="U2" pin="6"/>
+      <node ref="P3" pin="4"/>
+      <node ref="P2" pin="4"/>
+      <node ref="P8" pin="1"/>
+      <node ref="U4" pin="5"/>
+      <node ref="U2" pin="2"/>
+      <node ref="C2" pin="1"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="P3" pin="6"/>
+      <node ref="C5" pin="1"/>
+      <node ref="D2" pin="1"/>
+      <node ref="P1" pin="4"/>
+      <node ref="P3" pin="2"/>
+      <node ref="SW2" pin="2"/>
+      <node ref="C10" pin="1"/>
+      <node ref="U3" pin="7"/>
+      <node ref="U3" pin="6"/>
+      <node ref="U3" pin="5"/>
+      <node ref="P9" pin="1"/>
+      <node ref="P9" pin="2"/>
+      <node ref="P4" pin="6"/>
+      <node ref="C6" pin="2"/>
+      <node ref="C9" pin="1"/>
+      <node ref="C7" pin="1"/>
+      <node ref="P10" pin="4"/>
+      <node ref="U1" pin="2"/>
+      <node ref="U1" pin="4"/>
+      <node ref="D1" pin="2"/>
+      <node ref="C3" pin="2"/>
+      <node ref="U3" pin="4"/>
+      <node ref="U4" pin="3"/>
+      <node ref="C4" pin="1"/>
+      <node ref="U4" pin="21"/>
+    </net>
+    <net code="39" name="/ATMega328/RESET">
+      <node ref="C8" pin="2"/>
+      <node ref="SW2" pin="1"/>
+      <node ref="U4" pin="29"/>
+      <node ref="P4" pin="5"/>
+      <node ref="R5" pin="2"/>
+    </net>
+  </nets>
+</export>

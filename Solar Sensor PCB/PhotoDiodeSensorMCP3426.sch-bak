@@ -34,27 +34,6 @@ $EndComp
 Text Notes 4150 3050 0    60   ~ 0
 0.1% precision \nresistor
 $Comp
-L device:D_Photo D1
-U 1 1 60FA80A1
-P 2600 4000
-F 0 "D1" H 2450 4100 50  0000 C CNN
-F 1 "PHOTO DIODE" H 2700 3900 50  0000 C CNN
-F 2 "REInnovationFootprint:TH_LED-5MM_larg_pad" H 2600 4000 50  0001 C CNN
-F 3 "" H 2600 4000 50  0000 C CNN
-F 4 "~" H 2600 4000 60  0000 C CNN "Notes"
-F 5 "~" H 2600 4000 60  0001 C CNN "Description"
-F 6 "~" H 2600 4000 60  0001 C CNN "Manufacturer"
-F 7 "~" H 2600 4000 60  0001 C CNN "Manufacturer Part No"
-F 8 "~" H 2600 4000 60  0001 C CNN "Supplier 1"
-F 9 "~" H 2600 4000 60  0001 C CNN "Supplier 1 Part No"
-F 10 "~" H 2600 4000 60  0001 C CNN "Supplier 1 Cost"
-F 11 "~" H 2600 4000 60  0001 C CNN "Supplier 2"
-F 12 "~" H 2600 4000 60  0001 C CNN "Supplier 2 Part No"
-F 13 "~" H 2600 4000 60  0001 C CNN "Supplier 2 Cost"
-	1    2600 4000
-	0    1    1    0   
-$EndComp
-$Comp
 L device:C C1
 U 1 1 60FA80AA
 P 3550 2700
@@ -107,18 +86,9 @@ Wire Wire Line
 Wire Wire Line
 	3900 4600 3900 4400
 Wire Wire Line
-	2600 4100 2600 4300
-Wire Wire Line
 	2600 4300 2900 4300
 Wire Wire Line
-	3150 4300 3150 3900
-Wire Wire Line
-	3150 3900 3300 3900
-Wire Wire Line
 	2900 4400 2900 4300
-Connection ~ 2900 4300
-Wire Wire Line
-	2900 4300 3150 4300
 Wire Wire Line
 	2600 3800 2600 3700
 Wire Wire Line
@@ -127,9 +97,6 @@ Wire Wire Line
 	3000 3700 3000 3000
 Wire Wire Line
 	3000 3000 3400 3000
-Connection ~ 3000 3700
-Wire Wire Line
-	3000 3700 3300 3700
 Wire Wire Line
 	3700 3000 4050 3000
 Wire Wire Line
@@ -168,10 +135,10 @@ Wire Wire Line
 Wire Wire Line
 	3500 3500 3500 3400
 $Comp
-L Connector_Generic:Conn_01x04 J1
+L Connector_Generic:Conn_01x04 P8
 U 1 1 60FA8144
 P 7450 5250
-F 0 "J1" H 7530 5242 50  0000 L CNN
+F 0 "P8" H 7530 5242 50  0000 L CNN
 F 1 "ADC" H 7530 5151 50  0000 L CNN
 F 2 "REInnovationFootprint:SIL-4_large_pad" H 7450 5250 50  0001 C CNN
 F 3 "~" H 7450 5250 50  0001 C CNN
@@ -240,6 +207,10 @@ F 0 "U2" H 7200 4350 50  0000 C CNN
 F 1 "MCP3426-xSN" H 7100 4250 50  0000 C CNN
 F 2 "REInnovationFootprint:SM_SOIC_8" H 7500 3750 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22226a.pdf" H 7500 3750 50  0001 C CNN
+F 4 "RS" H 7500 3750 50  0001 C CNN "Supplier 1"
+F 5 "703-7958" H 7500 3750 50  0001 C CNN "Supplier 1 Code"
+F 6 "https://uk.rs-online.com/web/p/analogue-to-digital-converters/7037958/" H 7500 3750 50  0001 C CNN "Supplier 1 Web"
+F 7 "2.51" H 7500 3750 50  0001 C CNN "Supplier 1 Cost"
 	1    7500 3750
 	1    0    0    -1  
 $EndComp
@@ -269,4 +240,29 @@ Wire Wire Line
 	7900 3550 8200 3550
 Wire Wire Line
 	7900 3650 8200 3650
+Wire Wire Line
+	3000 3700 3000 3900
+Wire Wire Line
+	3000 3900 3300 3900
+Connection ~ 3000 3700
+Wire Wire Line
+	3300 3700 3150 3700
+Wire Wire Line
+	3150 3700 3150 4300
+Wire Wire Line
+	3150 4300 2900 4300
+Connection ~ 2900 4300
+$Comp
+L matts_components:LED D1
+U 1 1 617C7577
+P 2600 4000
+F 0 "D1" V 2554 4078 50  0000 L CNN
+F 1 "PHOTO DIODE" H 2400 3850 50  0000 L CNN
+F 2 "" H 2600 4000 50  0000 C CNN
+F 3 "" H 2600 4000 50  0000 C CNN
+	1    2600 4000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2600 4300 2600 4200
 $EndSCHEMATC
