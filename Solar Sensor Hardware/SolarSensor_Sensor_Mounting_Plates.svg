@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="SolarSensor_Sensor_Mounting_Plates.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.3431981"
+     inkscape:cx="278.00964"
+     inkscape:cy="96.930447"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="1909"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-object-midpoints="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.2"
+       id="path833-3"
+       cx="16.73731"
+       cy="19.847149"
+       r="11.9" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.2"
+       id="path833-3-0"
+       cx="16.73731"
+       cy="19.847149"
+       r="2.4000001" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.2"
+       id="path833-3-03"
+       cx="40.737312"
+       cy="19.847149"
+       r="11.9" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.2"
+       id="path833-3-0-5"
+       cx="40.737312"
+       cy="19.847149"
+       r="2.4000001" />
+    <g
+       id="g870">
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:0.2"
+         id="path833-3-1"
+         cx="64.737312"
+         cy="19.847149"
+         r="11.9" />
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:0.2"
+         id="path833-3-0-0"
+         cx="64.737312"
+         cy="19.847149"
+         r="2.4000001" />
+    </g>
+    <g
+       id="g997"
+       transform="translate(31.068684,-39.694104)">
+      <path
+         id="path833-3-1-9"
+         style="fill:none;stroke:#000000;stroke-width:0.2"
+         d="m 74.114635,43.662671 c -2.991499,-1.24e-4 -5.922352,0.843685 -8.455816,2.434479 v 0 l -10.663428,7.386627 0.06615,-0.0041 c -3.303043,1.738564 -5.09669,3.879191 -5.096849,6.082832 -1.3e-4,2.170072 1.904455,4.091061 4.879216,6.147059 3.105668,2.361552 6.248315,4.20769 9.358465,6.322462 2.890952,2.079903 6.331487,3.430312 9.912279,3.43028 3.746344,3.5e-5 7.348757,-1.452713 10.297707,-3.617052 l 8.821473,-6.036982 c 2.90113,-1.888135 5.03074,-4.000185 5.030767,-6.24577 -1.62e-4,-2.059691 -1.682991,-3.521263 -4.565613,-5.566066 l -9.776148,-6.947897 v 0 c -2.798786,-2.193658 -6.252157,-3.385781 -9.808186,-3.385841 z"
+         sodipodi:nodetypes="ccccccccccccccccc" />
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:0.2"
+         id="path833-3-0-3"
+         cx="54.614586"
+         cy="59.5625"
+         r="1.9" />
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:0.2"
+         id="path833-3-0-3-1"
+         cx="93.614586"
+         cy="59.5625"
+         r="1.9" />
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:0.2"
+         id="path833-3-1-8"
+         cx="74.114586"
+         cy="59.5625"
+         r="9.8999996" />
+    </g>
+    <g
+       id="g860"
+       transform="translate(15.877179,-37.874501)">
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:0.2"
+         id="path833"
+         cx="89.306091"
+         cy="57.742897"
+         r="8.8999996" />
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:0.2"
+         id="path833-8"
+         cx="89.306091"
+         cy="57.742897"
+         r="7.4000001" />
+    </g>
+  </g>
+</svg>
