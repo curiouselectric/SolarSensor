@@ -8,4 +8,6 @@
   (lib (name Amplifier_Difference)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/Amplifier_Difference.lib")(options "")(descr ""))
   (lib (name Amplifier_Operational)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/Amplifier_Operational.lib")(options "")(descr ""))
   (lib (name Analog_ADC)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/Analog_ADC.lib")(options "")(descr ""))
+  (lib (name Device)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Device.lib)(options "")(descr ""))
+  (lib (name Sensor_Temperature)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Sensor_Temperature.lib)(options "")(descr ""))
 )
