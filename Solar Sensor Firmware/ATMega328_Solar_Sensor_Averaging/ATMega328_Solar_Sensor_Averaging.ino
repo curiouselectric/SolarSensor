@@ -228,6 +228,9 @@ void t1SCallback() {
     bitWrite(UNIT_ID, 1, !digitalRead(GPIO_ID1));
     bitWrite(UNIT_ID, 2, !digitalRead(GPIO_ID2));
 
+    // Here we write the PWM to the output. from 0-255
+    analogWrite(ANALOG_OUT_PIN, solar_data.data_1s / 4);
+    
     data_counter_10s ++;
     data_counter_1s = 0;   // Reset the counter
   }
@@ -448,6 +451,9 @@ void setup() {
   buttonA.setDebounceTime(1000);
   buttonA.setTapHandler(tap);
 
+  pinMode(ANALOG_OUT_PIN, OUTPUT);  // sets the ANALOG_OUT_PIN as output
+  analogWrite(ANALOG_OUT_PIN, 0);   // set PWM off
+  
   // Set up Scheduler:
   runner.init();
   runner.addTask(t1);

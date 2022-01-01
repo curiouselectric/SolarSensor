@@ -42,7 +42,7 @@ P 6650 7400
 F 0 "P7" H 6650 7500 50  0000 C CNN
 F 1 "ENC" V 6750 7400 50  0000 C CNN
 F 2 "" H 6650 7400 50  0001 C CNN
-F 3 "https://www.rapidonline.com/pdf/30-3800e.pdf" H 6650 7400 50  0001 C CNN
+F 3 "https://www.farnell.com/datasheets/2052882.pdf" H 6650 7400 50  0001 C CNN
 F 4 "~" H 6650 7400 60  0000 C CNN "Notes"
 F 5 "~" H 6650 7400 60  0001 C CNN "Description"
 F 6 "~" H 6650 7400 60  0001 C CNN "Manufacturer"

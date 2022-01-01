@@ -204,11 +204,11 @@ Wire Wire Line
 	2600 4150 2450 4150
 Wire Wire Line
 	2600 4250 2450 4250
-Text Label 2450 4250 2    50   ~ 0
+Text Label 2450 4050 2    50   ~ 0
 A2
 Text Label 2450 4150 2    50   ~ 0
 A1
-Text Label 2450 4050 2    50   ~ 0
+Text Label 2450 4250 2    50   ~ 0
 A0
 Wire Wire Line
 	2450 2350 2650 2350
