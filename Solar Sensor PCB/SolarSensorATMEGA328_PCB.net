@@ -1,8 +1,8 @@
 (export (version D)
   (design
     (source "G:\\My Drive\\Work - Kits\\PRODUCTS\\Prototype\\Solar Sensor\\SolarSensor\\Solar Sensor PCB\\SolarSensorATMEGA328_PCB.sch")
-    (date "24/12/2021 16:31:07")
-    (tool "Eeschema (5.1.10)-1")
+    (date "04/01/2022 14:25:41")
+    (tool "Eeschema (5.1.12)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
@@ -62,7 +62,7 @@
       (tstamp 59012DA7))
     (comp (ref P7)
       (value ENC)
-      (datasheet https://www.rapidonline.com/pdf/30-3800e.pdf)
+      (datasheet https://www.farnell.com/datasheets/2052882.pdf)
       (fields
         (field (name Description) ~)
         (field (name Manufacturer) ~)
@@ -100,6 +100,9 @@
       (value 10k)
       (footprint REInnovationFootprint:SM0805)
       (datasheet ~)
+      (fields
+        (field (name "JLCPCB Add") Y)
+        (field (name LCSC) C17414))
       (libsource (lib device) (part R) (description Resistor))
       (sheetpath (names /) (tstamps /))
       (tstamp 61BE0CC2))
@@ -107,6 +110,9 @@
       (value 100n)
       (footprint REInnovationFootprint:SM_C_0805)
       (datasheet ~)
+      (fields
+        (field (name "JLCPCB Add") Y)
+        (field (name LCSC) C49678))
       (libsource (lib device) (part C) (description "Unpolarized capacitor"))
       (sheetpath (names /) (tstamps /))
       (tstamp 61BE141A))
@@ -296,7 +302,7 @@
       (sheetpath (names /ATMega328/) (tstamps /60FF06B8/))
       (tstamp 60FFEEA6))
     (comp (ref D2)
-      (value LED0)
+      (value OUT)
       (footprint REInnovationFootprint:SM0805_LED)
       (datasheet ~)
       (fields

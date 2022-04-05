@@ -23,7 +23,8 @@ class check_data {
     bool conversion_return_flag;
     bool conversion_set_flag;
     bool send_data_flag;
-
+    bool id_return_flag;
+    
     float solar_conv_m;
     float solar_conv_c;   
     
@@ -36,6 +37,6 @@ class check_data {
       error_flag = false; data_sent_flag = false;
       data_all_flag = false; data_min_flag = false; data_max_flag = false; data_reset_flag = false;
       baud_return_flag = false; baud_set_flag = false;
-      conversion_return_flag = false; conversion_set_flag = false;
+      conversion_return_flag = false; conversion_set_flag = false; id_return_flag = false;
     }
 };

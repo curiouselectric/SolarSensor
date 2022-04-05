@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="150.0mm"
    height="150.0mm"
    viewBox="0 0 150.0 150.0"
    version="1.1"
    id="svg8"
-   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="SolarSensorATMEGA328_PCB_design_v2.svg">
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="SolarSensorATMEGA328_PCB_design_v2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -24,16 +24,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.7453095"
-     inkscape:cx="161.0292"
-     inkscape:cy="262.55522"
+     inkscape:cx="161.28944"
+     inkscape:cy="262.70412"
      inkscape:document-units="mm"
-     inkscape:current-layer="g856"
+     inkscape:current-layer="g842"
      inkscape:document-rotation="0"
      showgrid="true"
      inkscape:window-width="1920"
-     inkscape:window-height="986"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      borderlayer="true"
      inkscape:snap-bbox="true"
@@ -41,7 +41,8 @@
      inkscape:bbox-paths="true"
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="true"
-     inkscape:snap-bbox-midpoints="true">
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:pagecheckerboard="0">
     <inkscape:grid
        spacingx="2.54"
        spacingy="2.54"
@@ -58,7 +59,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -83,7 +83,7 @@
      style="display:inline">
     <path
        style="display:inline;fill:none;stroke:#000000;stroke-width:0.0649999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 49.5954 36.9122 L 56.5714 36.9122 L 56.5714 29.2107 L 83.4024 29.2107 L 83.4024 36.9392 L 100.789 36.9392 L 100.789 67.0832 L 93.8127 67.0832 L 93.8127 74.7847 L 66.9816 74.7847 L 66.9816 67.0562 L 49.5954 67.0562 L 49.5954 36.9122"
+       d="M 100.789 36.9122 L 93.813 36.9122 L 93.813 29.2107 L 66.982 29.2107 L 66.982 36.9392 L 49.5954 36.9392 L 49.5954 67.0832 L 56.5717 67.0832 L 56.5717 74.7847 L 83.4028 74.7847 L 83.4028 67.0562 L 100.789 67.0562 L 100.789 36.9122"
        id="path999-4-9"
        sodipodi:nodetypes="ccccccccccccc" />
   </g>
@@ -120,24 +120,27 @@
     <ellipse
        style="opacity:0.997;fill:none;stroke:#666666;stroke-width:0.15407;stroke-miterlimit:4;stroke-dasharray:none"
        id="path874-4"
-       cx="90.077599"
+       cx="-60.306801"
        cy="70.858665"
        rx="2.9229653"
-       ry="2.922965" />
+       ry="2.922965"
+       transform="scale(-1,1)" />
     <ellipse
        style="opacity:0.997;fill:none;stroke:#666666;stroke-width:0.15407;stroke-miterlimit:4;stroke-dasharray:none"
        id="path874-4-8"
-       cx="53.590939"
+       cx="-96.793465"
        cy="63.210228"
        rx="2.9229653"
-       ry="2.922965" />
+       ry="2.922965"
+       transform="scale(-1,1)" />
     <ellipse
        style="display:inline;opacity:0.997;fill:none;stroke:#666666;stroke-width:0.15407;stroke-miterlimit:4;stroke-dasharray:none"
        id="path874-4-1"
-       cx="60.545483"
+       cx="-89.838921"
        cy="33.18383"
        rx="2.9229653"
-       ry="2.922965" />
+       ry="2.922965"
+       transform="scale(-1,1)" />
   </g>
   <g
      inkscape:label="Drill"
@@ -147,23 +150,26 @@
     <ellipse
        style="opacity:0.997;fill:none;stroke:#666666;stroke-width:0.0770348;stroke-miterlimit:4;stroke-dasharray:none"
        id="path874"
-       cx="90.077599"
+       cx="-60.306801"
        cy="70.858665"
        rx="1.4614824"
-       ry="1.4614825" />
+       ry="1.4614825"
+       transform="scale(-1,1)" />
     <ellipse
        style="opacity:0.997;fill:none;stroke:#666666;stroke-width:0.0770348;stroke-miterlimit:4;stroke-dasharray:none"
        id="path874-9"
-       cx="53.590939"
+       cx="-96.793465"
        cy="63.210228"
        rx="1.4614824"
-       ry="1.4614825" />
+       ry="1.4614825"
+       transform="scale(-1,1)" />
     <ellipse
        style="display:inline;opacity:0.997;fill:none;stroke:#666666;stroke-width:0.0770348;stroke-miterlimit:4;stroke-dasharray:none"
        id="path874-1"
-       cx="60.545483"
+       cx="-89.838921"
        cy="33.18383"
        rx="1.4614824"
-       ry="1.4614825" />
+       ry="1.4614825"
+       transform="scale(-1,1)" />
   </g>
 </svg>

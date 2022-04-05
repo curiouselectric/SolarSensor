@@ -2,18 +2,10 @@
 #include "solar_data.h"
 #include <EEPROM.h>       // for saving mode to EEPROM
 
-String check_data::parseData(String _inputString, byte _UNIT_ID, data_channel _local_wind_speed_data)
+String check_data::parseData(String _inputString, byte _UNIT_ID, data_channel _local_solar_data)
 {
   // Here we parse the data we get on the serial port
-  // Single channel data String is:     “aaI0R01A4#”
-  // All channel data String is:        “aaI0RAAA3#”
-  // All channel minimum data String is:“aaI0RMNA4#”  - does not matter what averaging period. min/max are just the min/max seen at max data rate.
-  // All channel maximum data String is:“aaI0RMXA0#”  - does not matter what averaging period. min/max are just the min/max seen at max data rate.
-  // What is baud rate?:  "aaI0BD#"
-  // Set Baud Rate:       "aaI0STBD*#"  Where * is 0,1,2,3,4 for 1200, 2400, 9600, 57600, 115200
-  // What is ID?:         Mentioned at start up of unit - its solder-programmed... cannot be changed in code.
-  // Enter vane training mode: "aaI0VT#"
-
+  // Check the main page for all the serial port requests
 
   String _outputString = "";    // Set output string for the output
 
@@ -62,12 +54,12 @@ String check_data::parseData(String _inputString, byte _UNIT_ID, data_channel _l
           }
           else if (_inputString.charAt(4) == 'S' && _inputString.charAt(5) == 'S' && _inputString.charAt(6) == 'C' && _inputString.charAt(7) == 'O' && _inputString.charAt(8) == 'N')
           {
-            // If we ask for "aaI0WVCON#" then it will return the wind vane conversion data
+            // If we ask for "aaI0SSCON#" then it will return the conversion data
             conversion_return_flag = true;
           }
-          else if (_inputString.charAt(4) == 'S' && _inputString.charAt(5) == 'S' && _inputString.charAt(6) == 'S' && _inputString.charAt(7) == 'T')
+          else if (_inputString.charAt(4) == 'S' && _inputString.charAt(5) == 'S' && _inputString.charAt(6) == 'S' && _inputString.charAt(7) == 'E' && _inputString.charAt(8) == 'T')
           {
-            // If we ask for "aaI0STWSm123.4c567.89#" then it will set the conversion values for m and c
+            // If we ask for "aaI0SSSTm123.4c567.89#" then it will set the conversion values for m and c
             // So need to find the data between m & c and between c and #
             // Then convert the data from string to a float
             String data_substring;
@@ -83,18 +75,17 @@ String check_data::parseData(String _inputString, byte _UNIT_ID, data_channel _l
             data_substring = _inputString.substring(start_index + 1, end_index);
             solar_conv_c = data_substring.toFloat();
             conversion_set_flag = true;
-
           }
           else if (_inputString.charAt(4) == 'S' && _inputString.charAt(5) == 'S' && _inputString.charAt(6) == 'M' && _inputString.charAt(7) == 'N')
           {
-            // We get here is asking for minimum wind speed data "MN"
+            // We get here is asking for minimum data "MN"
             // We dont need the average number
             data_min_flag = true;
             data_sent_flag = true; // This flag allows the main loop to then check out the correct data value and return it.
           }
           else if (_inputString.charAt(4) == 'S' && _inputString.charAt(5) == 'S' && _inputString.charAt(6) == 'M' && _inputString.charAt(7) == 'X')
           {
-            // We get here is asking for ALL maximum channel data "MX"
+            // We get here is asking for maximum data "MX"
             // We dont need the average number
             data_max_flag = true;
             data_sent_flag = true; // This flag allows the main loop to then check out the correct data value and return it.
@@ -121,10 +112,10 @@ String check_data::parseData(String _inputString, byte _UNIT_ID, data_channel _l
           {
             // We get here is asking for Min and Max data to be reset
             // *********** RESET ALL MAXIMUMS **********************
-            _local_wind_speed_data.data_max = -99999;
+            _local_solar_data.data_max = -99999;
 
             // *********** RESET ALL MINIMUMS **********************
-            _local_wind_speed_data.data_min = 99999;
+            _local_solar_data.data_min = 99999;
 
             data_sent_flag = false;
             data_min_flag = false;
@@ -144,6 +135,12 @@ String check_data::parseData(String _inputString, byte _UNIT_ID, data_channel _l
           data_sent_flag = false;
           _outputString = FAIL_STR;
         }
+      }
+      else if (_inputString.charAt(2) == 'I' && _inputString.charAt(3) == '?')
+      {
+        // This is the case when we dont know what the ID is and we are requesting it:
+        data_sent_flag = true; // This flag allows the main loop to then check out the correct data value and return it.
+        id_return_flag = true;
       }
       else
       {
