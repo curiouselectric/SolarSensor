@@ -7,17 +7,16 @@
 #define SWA_PIN           8
 #define ANALOG_OUT_PIN    6
 
-#define HC12_PWR_PIN      7     // This is a power output for the HC12 unit - set to LED0 at present
-
 #define LED_FLASH_TIME    5000  // time in mS between LED flashes
-#define LED_ON_TIME       100   // time in mS of the flash length
+#define LED_ON_TIME       50   // time in mS of the flash length
 
+#define HC12_PWR_PIN      9     // This is a power output for the HC12 unit - set to D9 at present. Not yet implemented.
 #define POWER_SETTLE_TIME 0     // Time in mS to wait after power is applied before sending serial data and time to wait after data set before switching off power.
 
 //// The baud rate for serial communications
 #define MAX_BAUD_RATES    5
 
-#define DEBUG_FLAG        false   // Use this for debugging. Not need for roll out.
+#define DEBUG_FLAG        false  // Use this for debugging. Not need for roll out.
                                     
 #define DEBOUNCE_DELAY    5       // debounce delay time in milli-Seconds This also gives max pulses - 5mS = 200 pulses per second                                   
                             
@@ -33,3 +32,8 @@
 #define END_STR               "#"
 
 #define MCP_ADDRESS           0x68
+
+#define M_CONV_INIT           10.0    // Initialisation value is EEPROM not previously set
+#define C_CONV_INIT           0.0     // Initialisation value is EEPROM not previously set
+
+#define MAX_IRRADIANCE        2000    // This is the value for the PWM output being Vcc. So 1000W/m2 is Vcc/2

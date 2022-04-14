@@ -13,25 +13,25 @@
    At all other times then the unit is asleep.
 
    Serial commands you can use:
-   
-   REQUEST: Get data:    “aaI0SSA?#” where ? is the averaging number from 0-4. 
+
+   REQUEST: Get data:    “aaI0SSA?#” where ? is the averaging number from 0-4.
    Averaging number: 0 = 1 second, 1 = 10 second, 2 = 60 second, 3 = 600 second (10 min), 4 = 3600 second (1hr)
-   RETURNED: "aaI0SSA1:28.51:28.60:28.50:18.00#" 
-   where the first number (between semi-colons) is the average, 2nd number is the Maximum (until a reset is done), 
+   RETURNED: "aaI0SSA1:28.51:28.60:28.50:18.00#"
+   where the first number (between semi-colons) is the average, 2nd number is the Maximum (until a reset is done),
    3rd number is the Minimum and 4th number is the temperature.
    Temperature has a resolution of 0.5 C.
    Response will include the averaging number.
 
-   REQUEST: Get Maximum:    “aaI0SSMX#” 
+   REQUEST: Get Maximum:    “aaI0SSMX#”
    RETURNED: "aaI0SSMX:28.90#" where the number after semi-colon is the maximum
 
-   REQUEST: Get Miniimum:    “aaI0SSMN#” 
+   REQUEST: Get Miniimum:    “aaI0SSMN#”
    RETURNED: "aaI0SSMN:27.90#" where the number after semi-colon is the minimum
 
    REQUEST: Reset Min & Max:    “aaI0RESET#”
    RETURNED: Nothing
    This will reset the maximum and minimum values
-   
+
    REQUEST:   What is baud rate?:  "aaI0BD#"
    RETURNED:  "aaI0BD9600#" Where the number between D and # is the baud rate.
    This is stored in EEPROM so will stay the same even on power down.
@@ -59,23 +59,52 @@
   So the output value (y) will be the voltage read (x) multiplied by m and then adding c
   The values for m and c are stored in EEPROM
   They can be requested and adjusted as stated here:
-  
+
   REQUEST:  "aaI0SSCON#"    Ask for the stored conversion values
   RETURNED: "aaI0SSCONm10.00c0.00#"  With the numbers after m and c being the conversion values
 
   REQUEST:  "aaI0SSSETm123.4c567.89#"    SET the stored conversion values
-  RETURNED: "aaI0SSSETm123.4c567.89#"     With the numbers after m and c being the conversion values  
+  RETURNED: "aaI0SSSETm123.4c567.89#"     With the numbers after m and c being the conversion values
 
   Send data for checking/display:
 
-  REQUEST:  "aaI0SEND?#" where ? is the averaging number from 0-4. 
-  Averaging number: 0 = 1 second, 1 = 10 second, 2 = 60 second, 3 = 600 second (10 min), 4 = 3600 second (1hr)
+  REQUEST:  "aaI0SEND?#" where ? is the averaging number from 0-5.
+  Averaging number: 0 = 1 second, 1 = 10 second, 2 = 60 second,
+  3 = 600 second (10 min), 4 = 3600 second (1hr), 5 = STOP send
+  RETURNED: "aaI0SENDON#" or "aaI0SENDOFF#
+  Then at regular intervals
   RETURNED: "aaI0SSA?:9.00:9.00:9.00:19.00#"  Data will be returned at the averaging period.
 
-  If you press the SWA button for more than 2 seconds then the unit will also enter SEND data mode.
-  Press again SWA for > 2 seconds then it will turn this function off.
-  **************** TO DO ************************
-  
+  If you press the SWA button for about 0.5-1 second then the unit will also enter SEND data mode.
+  It will cycle through the send averaging numbers from 0 = 1 second, 1 = 10 second, 2 = 60 second,
+  3 = 600 second (10 min), 4 = 3600 second (1hr), 5 = STOP send
+  This will loop back around. 0 -> 5 -> 0
+  The LED will flash 1 time for 0, 2 for 1, 3 for 2, 4 for 3 and 5 for 4 (I know!) and then one long led light for OFF.
+
+  Pressing and holding the button for > 3 seconds will set the unit directly into OFF
+
+   **Temperature Compensation
+   The output from the photo diode will depend upon temperature.
+   Need to know the temperature variation from the photo diode datasheet
+   Using a: SFH203 T1 3/4 PHOTODIODE (UNFILTERED) RC
+   Datasheet here: https://www.osram.com/ecat/Radial%20T1%203-4%20SFH%20203/com/en/class_pim_web_catalog_103489/prd_pim_device_2219554/
+   –2.6 mV/K from 25C nominal.
+   How do we relate this to voltage being recorded???
+   **************** TO DO ************************
+
+  **Analog Output
+  Only have 256 levels for the analog output.
+  Need to know Vcc to get absolute value
+  This gives headroom for > 1000W/m2
+  Can output up to MAX_IRRADIANCE W/m2 MAX
+  Example: So 1000 W/m2 = 256*1000/MAX_IRRADIANCE = 128 = Vcc/ 2 (for MAX_IRRADIANCE = 2000 W/m2)
+  Example: So 100 W/m2 = 256*100/MAX_IRRADIANCE = 12.8 (or 12 in discrete levels) (for MAX_IRRADIANCE = 2000 W/m2)
+  Adjust the PWM according to this.
+  solar_data.data_1s is the float value in W/m2
+  So PWM value is:
+  PWM_float = ( 256.0 * solar_data.data_1s ) / (float)MAX_IRRADIANCE;
+  Then convert to an INT
+  analogWrite(ANALOG_OUT_PIN, PWM_float);
 
    Details on the design of this device are here:
    https://www.re-innovation.co.uk/docs/low-cost-diy-solar-irradiance-sensor-for-pv-system-monitoring/
@@ -254,7 +283,7 @@ void t1SCallback() {
       solar_data.data_1s = 0;
     }
     // ****************** END Conversion *******************************
-    
+
     // Here we set the max and min for the sensor data
     if (solar_data.data_1s < solar_data.data_min)
     {
@@ -273,7 +302,7 @@ void t1SCallback() {
     if (solar_data.send_solar_data == 0)
     {
       sendData(0, true);
-      reset_data();
+      //reset_data();   // Resets Max and Min for each send cycle - uncomment if this is needed
     }
 
     // Every second we recheck the bits of the UNIT_ID
@@ -282,8 +311,9 @@ void t1SCallback() {
     bitWrite(UNIT_ID, 2, !digitalRead(GPIO_ID2));
 
     // Here we write the PWM to the output. from 0-255
-    analogWrite(ANALOG_OUT_PIN, solar_data.data_1s / 4);
-    
+    float PWM_float = ( 256.0 * solar_data.data_1s ) / (float)MAX_IRRADIANCE;
+    analogWrite(ANALOG_OUT_PIN, (int)PWM_float);
+
     data_counter_10s ++;
     data_counter_1s = 0;   // Reset the counter
   }
@@ -375,37 +405,54 @@ void t3600SCallback() {
 
 void tap(Button2 & btn)
 {
-  // In this routine we figure out which button has been pressed and deal with that:
-  if (btn == buttonA)
+  unsigned int time = btn.wasPressedFor();
+  if (time > 3000)
+  {
+    // This is a long press
+    // Instantly set send_solar_data to 5 (SEND OFF):
+    solar_data.send_solar_data = 5;
+    EEPROM.write(120, solar_data.send_solar_data);  // Update the EEPROM
+  }
+  else
   {
     // If SWA pressed then increment the "send_solar_data" from 0-1-2-3-4-5 and back to 0.
     // This means data will be shown at 1s/10s/60s/600s/3600s timescales.
 
     // In this case we start to send data at regular intervals.
     solar_data.send_solar_data++;
-    if (solar_data.send_solar_data >= 6)
+    if (solar_data.send_solar_data > 5)
     {
       solar_data.send_solar_data = 0;
     }
     EEPROM.write(120, solar_data.send_solar_data);  // Update the EEPROM
+  }
+
+  if (solar_data.send_solar_data < 5)
+  {
     Serial.print(F("aaSEND"));
     Serial.print(solar_data.send_solar_data);
     Serial.println("#");
 
     // Also want to flash the LED to show what send mode the unit is in:
-    for (int i = 0; i < solar_data.send_solar_data; i++)
+    for (int i = 0; i < (solar_data.send_solar_data + 1); i++)
     {
       digitalWrite(LED0_PIN, true);
-      delay(250);
+      delay(100);
       digitalWrite(LED0_PIN, false);
-      delay(250);
+      delay(200);
     }
+  }
+  else
+  {
+    Serial.println(F("aaSENDOFF#"));
+    digitalWrite(LED0_PIN, true);   // Long pulse ON
+    delay(1000);
+    digitalWrite(LED0_PIN, false);
   }
 }
 
 void flashLED()
 {
-
   if (millis() > (led_flash_timer + LED_FLASH_TIME))
   {
     digitalWrite(LED0_PIN, true);
@@ -447,12 +494,33 @@ void setup() {
   returnString.reserve(100);
 
   // Get the m and c wind speed conversion data
+  // But if they are NAN then initialise the values
+
   EEPROM.get(100, solar_data.solar_conv_m);
+  //check for NAN
+  if (isnan(solar_data.solar_conv_m))
+  {
+    solar_data.solar_conv_m = M_CONV_INIT;
+    EEPROM.put(100, solar_data.solar_conv_m);
+  }
   EEPROM.get(110, solar_data.solar_conv_c);
+  //check for NAN
+  if (isnan(solar_data.solar_conv_c))
+  {
+    solar_data.solar_conv_c = C_CONV_INIT;
+    EEPROM.put(110, solar_data.solar_conv_c);
+  }
+
 
   // Get the control int for sending data to serial port
   // This is for constant output data
+  // Set this to 5 if not set previously..
+  if (EEPROM.read(120) < 0 || EEPROM.read(120) > 5)
+  {
+    EEPROM.write(5, 120);
+  }
   solar_data.send_solar_data = EEPROM.read(120);
+
 
   // Read in the digital pins to check the Unit ID
   // This reads in three digital pins to set the Unit ID
@@ -492,6 +560,7 @@ void setup() {
   digitalWrite(LED0_PIN, HIGH);
   delay(100);
   digitalWrite(LED0_PIN, LOW);
+
   // Set up the HC12 power output
   pinMode(HC12_PWR_PIN, OUTPUT);
   digitalWrite(HC12_PWR_PIN, LOW);
@@ -501,12 +570,12 @@ void setup() {
   digitalWrite(LED0_PIN, LOW);
 
   pinMode(SWA_PIN, INPUT_PULLUP);
-  buttonA.setDebounceTime(1000);
+  buttonA.setDebounceTime(50);
   buttonA.setTapHandler(tap);
 
   pinMode(ANALOG_OUT_PIN, OUTPUT);  // sets the ANALOG_OUT_PIN as output
   analogWrite(ANALOG_OUT_PIN, 0);   // set PWM off
-  
+
   // Set up Scheduler:
   runner.init();
   runner.addTask(t1);
@@ -674,7 +743,14 @@ void loop()
       {
         // In this case we start to send data at regular intervals.
         solar_data.send_solar_data = EEPROM.read(120);
-        returnString = F("aaSENDOK#");   // This needs to be returned
+        if (solar_data.send_solar_data < 5)
+        {
+          returnString = F("aaSENDON#");
+        }
+        else
+        {
+          returnString = F("aaSENDOFF#");
+        }
         checkData.send_data_flag = false;
         checkData.data_sent_flag = false;
       }
@@ -713,7 +789,6 @@ void serialEvent()
 
 void sendData(int average_time, bool send_serial)
 {
-  // Send 1 second data
   digitalWrite(HC12_PWR_PIN, HIGH);
   delay(POWER_SETTLE_TIME);  // short settling delay
   returnString = START_STR;
