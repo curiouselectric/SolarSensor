@@ -16,6 +16,10 @@
 //// The baud rate for serial communications
 #define MAX_BAUD_RATES    5
 
+#define APPLY_TEMP_COMP   true  // Do you want the irradiance compensated for temperature?
+#define TEMP_COMP_VAL     0.18  // % change in short circuit current away from rated temperature
+#define RATED_TEMP        25.0  // Datasheet value about temperature rating
+
 #define DEBUG_FLAG        false  // Use this for debugging. Not need for roll out.
                                     
 #define DEBOUNCE_DELAY    5       // debounce delay time in milli-Seconds This also gives max pulses - 5mS = 200 pulses per second                                   

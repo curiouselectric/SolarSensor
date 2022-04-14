@@ -88,9 +88,14 @@
    Need to know the temperature variation from the photo diode datasheet
    Using a: SFH203 T1 3/4 PHOTODIODE (UNFILTERED) RC
    Datasheet here: https://www.osram.com/ecat/Radial%20T1%203-4%20SFH%20203/com/en/class_pim_web_catalog_103489/prd_pim_device_2219554/
-   –2.6 mV/K from 25C nominal.
-   How do we relate this to voltage being recorded???
-   **************** TO DO ************************
+   This comes from the light sensor datasheet. I have settled on the SFH-203 from OSRAM. This is rated at 25C and has coefficients for voltage and short circuit current.
+   We are using the short circuit current which is measured by the op-amp.
+   The temperature coefficient of the short circuit current is 0.18 % / K.
+   So to compensate the reading for temperature we need to adjust up/down depending upon the temperature.
+   The adjustment is: Adjustment = (LM75B temperature - 25) * 0.18 %
+   We then need to apply this factor to our irradiance value: Real irradiance = Measured Value - Measured Value * (Adjustment / 100)
+   There is the "APPLY_TEMP_COMP" flag in the config to say if this is applied or not
+
 
   **Analog Output
   Only have 256 levels for the analog output.
@@ -282,6 +287,15 @@ void t1SCallback() {
       // Do not get negative irradiances! So set this to zero
       solar_data.data_1s = 0;
     }
+    // ******* Apply temperature compensation? *************************
+    if (APPLY_TEMP_COMP == true)
+    {
+      // Applying temperature compensation here:
+      float Adjust_percent = (solar_data.sensor_temperature - RATED_TEMP) * TEMP_COMP_VAL;
+      float Irradiance_tcomp = solar_data.data_1s - (solar_data.data_1s * (Adjust_percent / 100.0));
+      solar_data.data_1s = Irradiance_tcomp;
+    }
+
     // ****************** END Conversion *******************************
 
     // Here we set the max and min for the sensor data
