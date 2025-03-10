@@ -22,7 +22,7 @@ The sensor uses an accurate 16 bit Analog to Digital converter (ADC) (rather tha
 There is also a temperature sensor on-board to adjust readings for the sensor temperature. 
 
 
-![Overview](https://github.com/curiouselectric/SolarSensor/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Overview.png?raw=true)
+![Overview](https://github.com/curiouselectric/SolarSensor/blob/master/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Overview.png?raw=true)
 
 I originally designed this to interface to an ESP32 data logger, which sleeps most of the time. The ESP32 wakes up, gets the data it needs, then goes back to sleep, knowing the solar sensor is always monitoring.
 
