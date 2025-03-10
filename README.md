@@ -12,14 +12,19 @@ The main things to note with this design are:
 * It does not apply any corrections/filtes for human eye parameters (whcih Lux sensors use, typically for photography or dimming algorithms)
 * It does not apply any corrections/filters for pl;ant growing characteristics (typically called PAR  - [Photosynthetically active radiation](https://en.wikipedia.org/wiki/Photosynthetically_active_radiation)
 
+# Overview
+This unit reads irradiance from a photo diode sensor (like a P-N junction in a typical solar photovoltaic cell) every 100mS or so. It averages those values over different sampling periods of 1, 10, 60 (1 min), 600 (10 min), 3600 (1 hour) seconds. It has an ATMega328 microcontroller onboard for measuring the sensors, processing commands and returnign serial data. A simple serial interface has been implemented (at max 57600 baud) to service requests from another device (such as a data logger or monitoring system). The serial requests can also have CRC for error checking.
 
+The sensor uses an accurate 16 bit Analog to Digital converter (ADC) (rather than the 10 bit resolution on-board the micrcontorller). This allso much finer montitoring of the very small current from the solar sensor.
 
-The problem with measuring wind anemometers and wind vane is that they constantly need to be checked. You need to know at all times when pulses have come in and which direction the wind vane is facing. This requires a bit of microcontroller time and processing. This unit is designed to solve that.
-Wire up your vane and anemometer. Power the unit up. Then it will save the averaged data for you. You can then get hold of the data through serial requests and process as you need.
+There is also a temperature sensor on-board to adjust readings for the sensor temperature. 
 
-I designed this to interface to an ESP32 data logger, which sleeps most of the time. The ESP32 wakes up, gets the data it needs, then goes back to sleep, knowing the solar sensor is always monitoring.
+I originally designed this to interface to an ESP32 data logger, which sleeps most of the time. The ESP32 wakes up, gets the data it needs, then goes back to sleep, knowing the solar sensor is always monitoring.
 
 It was designed as a relatively simple interface to remove the need for monitoring irradiance data and averaging it. 
+There are other dvices in this range, [including a wind sensor](https://www.curiouselectric.co.uk/collections/environment/products/wind-sensor-interface).
+
+
 
 ## Wind Speed Measurements
 
