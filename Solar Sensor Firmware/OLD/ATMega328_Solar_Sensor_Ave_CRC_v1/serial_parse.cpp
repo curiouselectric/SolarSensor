@@ -39,7 +39,7 @@ String check_data::parseData(String _inputString, byte _UNIT_ID, data_channel _l
           {
             // if we ask for "aaI0STBD?#" then it will return the baud rate, with ? being a number to set baud rate from array
             int baud_id = (_inputString.substring(8, 9)).toInt();
-            EEPROM.write(4, baud_id);
+            EEPROM.write(BAUD_RATE_EEPROM_LOC, baud_id);
             baud_set_flag = true;
           }
           else if (_inputString.charAt(4) == 'S' && _inputString.charAt(5) == 'E' && _inputString.charAt(6) == 'N' && _inputString.charAt(7) == 'D')
@@ -48,7 +48,7 @@ String check_data::parseData(String _inputString, byte _UNIT_ID, data_channel _l
             int send_id = (_inputString.substring(8, 9)).toInt();
             if (send_id >= 0 && send_id < 6)
             {
-              EEPROM.write(120, send_id);
+              EEPROM.write(SEND_ID_EEPROM_LOC, send_id);
               send_data_flag = true;
             }
           }
@@ -96,7 +96,15 @@ String check_data::parseData(String _inputString, byte _UNIT_ID, data_channel _l
             if (_inputString.charAt(6) == 'A' && isDigit(_inputString.charAt(7)))
             {
               // need to check if AVE is OK and a number
-              ave_time = (_inputString.substring(7, 8)).toInt();
+              // Also need to check its between 0-5!! // TO DO!!!
+              if ((_inputString.substring(7, 8)).toInt() < 5)
+              {
+                ave_time = (_inputString.substring(7, 8)).toInt();
+              }
+              else
+              {
+                ave_time = 0; // This is just if number is not in right range - return the instantaneous data
+              }
               // This means we have all the parts required and can return true - the data will be correct.
               data_sent_flag = true; // This flag allows the main loop to then check out the correct data value and return it.
               data_all_flag = true; // This means we return ALL the data

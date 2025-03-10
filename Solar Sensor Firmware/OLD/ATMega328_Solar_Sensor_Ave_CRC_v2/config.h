@@ -24,8 +24,15 @@
 #define TEMP_COMP_VAL     0.18  // % change in short circuit current away from rated temperature
 #define RATED_TEMP        25.0  // Datasheet value about temperature rating
 
-#define DEBUG_FLAG        false  // Use this for debugging. Not need for roll out.
-                                    
+#define ADD_CRC_CHECK     false    // Use this to add CRC check to incomming and outgoing messages
+
+#define DEBUG_FLAG        false   // Use this for debugging. Not need for roll out.
+#define DEBUG_DATA_1S     false   // Use this for debugging. Not need for roll out.
+#define DEBUG_DATA_10S    false   // Use this for debugging. Not need for roll out.
+#define DEBUG_DATA_60S    false   // Use this for debugging. Not need for roll out.
+#define DEBUG_DATA_600S   false   // Use this for debugging. Not need for roll out.
+#define DEBUG_DATA_3600S  false   // Use this for debugging. Not need for roll out. 
+                           
 #define DEBOUNCE_DELAY    5       // debounce delay time in milli-Seconds This also gives max pulses - 5mS = 200 pulses per second                                   
                             
 // These three digital pins are for the Device ID selection:

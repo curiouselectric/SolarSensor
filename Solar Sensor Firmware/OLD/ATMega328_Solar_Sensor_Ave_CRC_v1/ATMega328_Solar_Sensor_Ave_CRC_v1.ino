@@ -134,6 +134,7 @@
 #include <avr/wdt.h>      // for the watch dog timer
 
 // For the LM75 I2C temperature sensor:
+// https://github.com/jeremycole/Temperature_LM75_Derived
 #include <Temperature_LM75_Derived.h>
 
 //For the MCP3426 ADC I2C sensor:
@@ -145,7 +146,7 @@
 #include "config.h"
 #include "serial_parse.h"
 #include "solar_data.h"
-
+#include "crc_check.h"
 
 #include "utilitiesDL.h"
 // 0x68 is the default address for all MCP342x devices
@@ -247,12 +248,11 @@ void t1Callback() {
 
   // Check the sensor data
   long dataValue = 0;
-
   MCP342x::Config status;
   // Initiate a conversion; convertAndRead() will wait until it can be read
   uint8_t err = adc.convertAndRead(MCP342x::channel1, MCP342x::oneShot,
                                    MCP342x::resolution16, MCP342x::gain1,
-                                   1000, dataValue, status);
+                                   1000000, dataValue, status);
   if (err)
   {
     // If there is an ADC error, highlight it and dont read the data into the unit
@@ -425,7 +425,7 @@ void tap(Button2 & btn)
     // This is a long press
     // Instantly set send_solar_data to 5 (SEND OFF):
     solar_data.send_solar_data = 5;
-    EEPROM.write(120, solar_data.send_solar_data);  // Update the EEPROM
+    EEPROM.write(SEND_ID_EEPROM_LOC, solar_data.send_solar_data);  // Update the EEPROM
   }
   else
   {
@@ -438,7 +438,7 @@ void tap(Button2 & btn)
     {
       solar_data.send_solar_data = 0;
     }
-    EEPROM.write(120, solar_data.send_solar_data);  // Update the EEPROM
+    EEPROM.write(SEND_ID_EEPROM_LOC, solar_data.send_solar_data);  // Update the EEPROM
   }
 
   if (solar_data.send_solar_data < 5)
@@ -494,7 +494,7 @@ void flashLED()
 void setup() {
 
   // Read the serial baud rate set in EEPROM
-  SERIAL_BAUD = EEPROM.read(4);
+  SERIAL_BAUD = EEPROM.read(BAUD_RATE_EEPROM_LOC);
   if (SERIAL_BAUD >= MAX_BAUD_RATES)
   {
     SERIAL_BAUD = 2;  // Initialise to 9600 if data out of range
@@ -510,30 +510,30 @@ void setup() {
   // Get the m and c wind speed conversion data
   // But if they are NAN then initialise the values
 
-  EEPROM.get(100, solar_data.solar_conv_m);
+  EEPROM.get(CONV_M_EEPROM_LOC, solar_data.solar_conv_m);
   //check for NAN
   if (isnan(solar_data.solar_conv_m))
   {
     solar_data.solar_conv_m = M_CONV_INIT;
-    EEPROM.put(100, solar_data.solar_conv_m);
+    EEPROM.put(CONV_M_EEPROM_LOC, solar_data.solar_conv_m);
   }
-  EEPROM.get(110, solar_data.solar_conv_c);
+  EEPROM.get(CONV_C_EEPROM_LOC, solar_data.solar_conv_c);
   //check for NAN
   if (isnan(solar_data.solar_conv_c))
   {
     solar_data.solar_conv_c = C_CONV_INIT;
-    EEPROM.put(110, solar_data.solar_conv_c);
+    EEPROM.put(CONV_C_EEPROM_LOC, solar_data.solar_conv_c);
   }
 
 
   // Get the control int for sending data to serial port
   // This is for constant output data
   // Set this to 5 if not set previously..
-  if (EEPROM.read(120) < 0 || EEPROM.read(120) > 5)
+  if (EEPROM.read(SEND_ID_EEPROM_LOC) < 0 || EEPROM.read(SEND_ID_EEPROM_LOC) > 5)
   {
-    EEPROM.write(5, 120);
+    EEPROM.write(5, SEND_ID_EEPROM_LOC);
   }
-  solar_data.send_solar_data = EEPROM.read(120);
+  solar_data.send_solar_data = EEPROM.read(SEND_ID_EEPROM_LOC);
 
 
   // Read in the digital pins to check the Unit ID
@@ -552,7 +552,9 @@ void setup() {
   if (DEBUG_FLAG == true)
   {
     Serial.print(F("ID is: "));
-    Serial.println(UNIT_ID);
+    Serial.print(UNIT_ID);
+    Serial.print(F(" BD: "));
+    Serial.println(baud_rates[SERIAL_BAUD]);
   }
 
   Wire.begin();   // Start the I2C bus
@@ -560,7 +562,7 @@ void setup() {
 
   // Reset devices
   MCP342x::generalCallReset();
-  delay(1); // MC342x needs 300us to settle, wait 1ms
+  delay(5); // MC342x needs 300us to settle, wait 1ms
 
   // Check device present
   Wire.requestFrom(MCP_ADDRESS, (uint8_t)1);
@@ -632,7 +634,10 @@ void loop()
 
     if (checkData.error_flag == true)
     {
-      Serial.println(errorString);    // This needs to be returned
+      if (DEBUG_FLAG == true)
+      {
+        Serial.println(errorString);    // This needs to be returned only in debug mode!
+      }
       checkData.error_flag = false;
     }
     else
@@ -676,8 +681,8 @@ void loop()
         solar_data.solar_conv_m = checkData.solar_conv_m;
         solar_data.solar_conv_c = checkData.solar_conv_c;
         // Store this data to EEPROM
-        EEPROM.put(100, solar_data.solar_conv_m);
-        EEPROM.put(110, solar_data.solar_conv_c);
+        EEPROM.put(CONV_M_EEPROM_LOC, solar_data.solar_conv_m);
+        EEPROM.put(CONV_C_EEPROM_LOC, solar_data.solar_conv_c);
         returnString = START_STR;
         returnString += (String)UNIT_ID;
         returnString += "SSSETm";
@@ -690,13 +695,15 @@ void loop()
       }
       else if (checkData.baud_set_flag == true)
       {
-        Serial.end();
+
+        Serial.end();  // STOP the serial and restart at new baud rate
         // Here we set the baud rate to a new value and store in EEPROM
+
         returnString = START_STR;
         returnString += (String)UNIT_ID;
         returnString += "STBD";
         // Read the serial baud rate set in EEPROM
-        SERIAL_BAUD = EEPROM.read(10);
+        SERIAL_BAUD = EEPROM.read(BAUD_RATE_EEPROM_LOC);
         if (SERIAL_BAUD >= MAX_BAUD_RATES)
         {
           SERIAL_BAUD = 2;  // Initialise to 9600 if data out of range
@@ -756,7 +763,7 @@ void loop()
       else if (checkData.send_data_flag == true)
       {
         // In this case we start to send data at regular intervals.
-        solar_data.send_solar_data = EEPROM.read(120);
+        solar_data.send_solar_data = EEPROM.read(SEND_ID_EEPROM_LOC);
         if (solar_data.send_solar_data < 5)
         {
           returnString = F("aaSENDON#");
@@ -770,11 +777,19 @@ void loop()
       }
       else
       {
-        returnString = FAIL_STR;
+        // Do not want anything sent back here when connected to logger:
+        if (DEBUG_FLAG == true)
+        {
+          returnString = FAIL_STR;
+        }
         checkData.data_sent_flag = false;
       }
       DEBUGLN(DEBUG_FLAG, "Returned string:");
-      Serial.println(returnString);
+      if (returnString != FAIL_STR)
+      {
+        Serial.println(returnString);
+      }
+
     }
     inputString = "";
     stringComplete = false;

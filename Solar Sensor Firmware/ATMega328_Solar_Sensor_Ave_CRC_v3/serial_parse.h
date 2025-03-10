@@ -24,7 +24,8 @@ class check_data {
     bool conversion_set_flag;
     bool send_data_flag;
     bool id_return_flag;
-    
+    bool button_press_flag;
+        
     float solar_conv_m;
     float solar_conv_c;   
     

@@ -146,7 +146,7 @@
 #include "config.h"
 #include "serial_parse.h"
 #include "solar_data.h"
-
+#include "crc_check.h"
 
 #include "utilitiesDL.h"
 // 0x68 is the default address for all MCP342x devices
@@ -443,10 +443,18 @@ void tap(Button2 & btn)
 
   if (solar_data.send_solar_data < 5)
   {
-    Serial.print(F("aaSEND"));
-    Serial.print(solar_data.send_solar_data);
-    Serial.println("#");
-
+    returnString = F("aaSEND");
+    returnString += solar_data.send_solar_data;
+    if (ADD_CRC_CHECK)
+    {
+      // Add the CRC here: This adds the ? the CRC and the # to the end
+      returnString = add_CRC(returnString);
+    }
+    else
+    {
+      returnString += "#";
+    }
+    Serial.println(returnString);
     // Also want to flash the LED to show what send mode the unit is in:
     for (int i = 0; i < (solar_data.send_solar_data + 1); i++)
     {
@@ -458,7 +466,17 @@ void tap(Button2 & btn)
   }
   else
   {
-    Serial.println(F("aaSENDOFF#"));
+    returnString = F("aaSENDOFF");
+    if (ADD_CRC_CHECK)
+    {
+      // Add the CRC here: This adds the ? the CRC and the # to the end
+      returnString = add_CRC(returnString);
+    }
+    else
+    {
+      returnString += "#";
+    }
+    Serial.println(returnString);
     digitalWrite(LED0_PIN, true);   // Long pulse ON
     delay(1000);
     digitalWrite(LED0_PIN, false);
@@ -634,6 +652,15 @@ void loop()
 
     if (checkData.error_flag == true)
     {
+      if (ADD_CRC_CHECK)
+      {
+        // Add the CRC here: This adds the ? the CRC and the # to the end
+        errorString = add_CRC(errorString);
+      }
+      else
+      {
+        errorString += "#";
+      }
       if (DEBUG_FLAG == true)
       {
         Serial.println(errorString);    // This needs to be returned only in debug mode!
@@ -649,7 +676,7 @@ void loop()
         returnString += (String)UNIT_ID;
         returnString += "BD";
         returnString += baud_rates[SERIAL_BAUD];
-        returnString += END_STR;
+        //returnString += END_STR;
         checkData.baud_return_flag = false;
         checkData.data_sent_flag = false;
       }
@@ -658,7 +685,7 @@ void loop()
         // Return the ID of the unit
         returnString = "aaI";
         returnString += (String)UNIT_ID;
-        returnString += "#";
+        //returnString += "#";
         checkData.id_return_flag = false;
         checkData.data_sent_flag = false;
       }
@@ -671,7 +698,7 @@ void loop()
         returnString += (String)solar_data.solar_conv_m;
         returnString += "c";
         returnString += (String)solar_data.solar_conv_c;
-        returnString += END_STR;
+        //returnString += END_STR;
         checkData.conversion_return_flag = false;
         checkData.data_sent_flag = false;
       }
@@ -780,16 +807,27 @@ void loop()
         // Do not want anything sent back here when connected to logger:
         if (DEBUG_FLAG == true)
         {
-          returnString = FAIL_STR;
+          returnString = F("aaFAILCRC");
         }
         checkData.data_sent_flag = false;
       }
+
+
+      if (ADD_CRC_CHECK)
+      {
+        // Add the CRC here: This adds the ? the CRC and the # to the end
+        returnString = add_CRC(returnString);
+      }
+      else
+      {
+        returnString += END_STR;
+      }
+
       DEBUGLN(DEBUG_FLAG, "Returned string:");
       if (returnString != FAIL_STR)
       {
         Serial.println(returnString);
       }
-
     }
     inputString = "";
     stringComplete = false;
@@ -818,6 +856,7 @@ void serialEvent()
 
 void sendData(int average_time, bool send_serial)
 {
+  char buff[10];
   digitalWrite(HC12_PWR_PIN, HIGH);
   delay(POWER_SETTLE_TIME);  // short settling delay
   returnString = START_STR;
@@ -832,30 +871,51 @@ void sendData(int average_time, bool send_serial)
       switch (c)
       {
         case 0:
-          returnString += (String)solar_data.data_1s;
+          dtostrf(solar_data.data_1s, 2, 1, buff);  //2 is mininum width, 1 is precision
           break;
         case 1:
-          returnString += (String)solar_data.data_10s;
+          dtostrf(solar_data.data_10s, 2, 1, buff);  //2 is mininum width, 1 is precision
+          //snprintf (buff, sizeof(buff), "%f", solar_data.data_10s);
+          //returnString += (String)solar_data.data_10s;
           break;
         case 2:
-          returnString += (String)solar_data.data_60s;
+          dtostrf(solar_data.data_60s, 2, 1, buff);  //2 is mininum width, 1 is precision
+          //returnString += (String)solar_data.data_60s;
           break;
         case 3:
-          returnString += (String)solar_data.data_600s;
+          dtostrf(solar_data.data_600s, 2, 1, buff);  //2 is mininum width, 1 is precision
+          //snprintf (buff, sizeof(buff), "%f", solar_data.data_600s);
+          //returnString += (String)solar_data.data_600s;
           break;
         case 4:
-          returnString += (String)solar_data.data_3600s;
+          dtostrf(solar_data.data_3600s, 2, 1, buff);  //2 is mininum width, 1 is precision
+          //snprintf (buff, sizeof(buff), "%f", solar_data.data_3600s);
+          //returnString += (String)solar_data.data_3600s;
           break;
       }
+      returnString += buff;
     }
   }
+
   returnString += ":";
-  returnString += (String)solar_data.data_max;
+  dtostrf(solar_data.data_max, 2, 1, buff);  //2 is mininum width, 1 is precision
+  returnString += (String)buff;
   returnString += ":";
-  returnString += (String)solar_data.data_min;
+  dtostrf(solar_data.data_min, 2, 1, buff);  //2 is mininum width, 1 is precision
+  returnString += (String)buff;
   returnString += ":";
-  returnString += (String)solar_data.sensor_temperature;
-  returnString += END_STR;
+  dtostrf(solar_data.sensor_temperature, 2, 1, buff);  //2 is mininum width, 1 is precision
+  returnString += (String)buff;
+  if (ADD_CRC_CHECK)
+  {
+    // Add the CRC here: This adds the ? the CRC and the # to the end
+    returnString = add_CRC(returnString);
+  }
+  else
+  {
+    returnString += END_STR;
+  }
+
   if (send_serial == true)
   {
     Serial.println(returnString);
