@@ -1,5 +1,17 @@
-# SolarSensor
-A DIY solar irradiance sensor
+# Solar Sensor
+A DIY solar irradiance sensor.
+
+Here are the design files (hardware, PCB and firmware) for a relatively low cost solar irradaince sneesor (called a pyranometer).
+
+[Information relating to the design choices for this unit is available in a blog post here](https://www.re-innovation.co.uk/docs/low-cost-diy-solar-irradiance-sensor-for-pv-system-monitoring/).
+
+This pyranometer is design to measure solar irradiance in Watts per meter squared. This is useful for monitoring systems for solar photovoltaic panels. It can also be used as an indicator value for light levels in many systems.
+
+The main things to note with this design are:
+*It does not apply any corrections/filtes for human eye parameters (whcih Lux sensors use, typically for photography or dimming algorithms)
+*It does not apply any corrections/filters for pl;ant growing characteristics (typically called PAR  - [Photosynthetically active radiation](https://en.wikipedia.org/wiki/Photosynthetically_active_radiation)
+
+
 
 The problem with measuring wind anemometers and wind vane is that they constantly need to be checked. You need to know at all times when pulses have come in and which direction the wind vane is facing. This requires a bit of microcontroller time and processing. This unit is designed to solve that.
 Wire up your vane and anemometer. Power the unit up. Then it will save the averaged data for you. You can then get hold of the data through serial requests and process as you need.
