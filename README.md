@@ -48,7 +48,7 @@ There are two mode of operation, depending upon your use case:
 
 In this mode then the unit responds to serial requests made. You ask the sensor for data and this is returned. It never sends anything unless asked. 
 
-![Response](https://github.com/curiouselectric/SolarSensor/blob/3d8bd7952c9884ee20aa96705ab54dbe47d60013/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Response.png?raw=true) 
+![Response](https://github.com/curiouselectric/SolarSensor/blob/master/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Broadcast.png?raw=true) 
 
 ## Broadcast Mode
 
@@ -56,7 +56,7 @@ In this mode then the unit regularly sends data via the serial connunication. It
 
 
 
-![Broadcast](https://github.com/curiouselectric/SolarSensor/blob/7e5009a6d66e798d3fe0864cc3b194c4df65eb46/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Broadcast.png?raw=true)
+![Broadcast](https://github.com/curiouselectric/SolarSensor/blob/master/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Response.png?raw=true)
 
 Boradcast mode works well if the logger is always listening and you only have one sensor in range. If more than one sensor is in range then the data will clash and potentially cause issues, in which case use Response mode.
 
