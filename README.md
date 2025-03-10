@@ -51,7 +51,9 @@ In this mode then the unit responds to serial requests made. You ask the sensor 
 
 In this mode then the unit regularly sends data via the serial connunication. It will send the averaged data for (0) 1 second, (1) 10 second, (2) 1 min, (3) 10 min and (4) 1 hour averaged data. If this is set to (5) then the unit does not send any data. The send mdoe is stored in EEPROM, so it will start sending data again even if power is lost.
 
-![Broadcast](Solar Sensor Instructions/Images/Solar Sensor Broadcast.png?raw=true)
+
+
+![Broadcast](https://github.com/curiouselectric/SolarSensor/blob/7e5009a6d66e798d3fe0864cc3b194c4df65eb46/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Broadcast.png)
 
 Boradcast mode works well if the logger is always listening and you only have one sensor in range. If more than one sensor is in range then the data will clash and potentially cause issues, in which case use Response mode.
 
