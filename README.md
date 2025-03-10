@@ -130,7 +130,7 @@ At all other times then the unit is asleep.
 This unit is called the Solar Sensor, so I used "SS" as its simple serial name.
 
 ## Irradiance data:
-Request: “aaI0SSA4#”  ("  " with CRC)  Where 0 is an ID from 0-7 set by solder on PCB. 4 is the averaging period (0=1s, 1=10s, 2 = 60s, 3 = 600s, 4=3600s)  
+Request: “aaI0SSA4#”  ("aaI0SSA4?41#" with CRC)  Where 0 is an ID from 0-7 set by solder on PCB. 4 is the averaging period (0=1s, 1=10s, 2 = 60s, 3 = 600s, 4=3600s)  
 
 Returns: "aaI0SSA1:28.51:28.60:28.50:18.00#" 
 
@@ -141,17 +141,17 @@ Temperature has a resolution of 0.5 C (18.00C in this example).
 Response will include the averaging number (1 in this example).
                                       
 ## Irradiance data minimum:
-Request: “aaI0SSMN#” (" " with CRC) - does not matter what averaging period. min/max are just the min/max seen.
+Request: “aaI0SSMN#” ("aaI0SSMN?dc#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
 
 Returns: "aaI0SSMN:27.90#" where the number after semi-colon is the minimum. (+CRC if requested)
                                       
 ## Irradiance data maximum:
-Request: “aaI0SSMX#”  ("" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
+Request: “aaI0SSMX#”  ("aaI0SSMX?be#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
 
 Returns: "aaI0SSMX:28.90#" where the number after semi-colon is the maximum. (+CRC if requested)
 
 ## Reset the min/max:
-Request:   “aaI0RESET#” ("" with CRC) this will Reset Min & Max.  
+Request:   “aaI0RESET#” ("aaI0RESET?d9#" with CRC) this will Reset Min & Max.  
 Return:  Nothing
 This command will reset the min/max. Min and max will be stored until this reset command is issued.
 
@@ -166,7 +166,7 @@ REQUEST:  "aaI0SSSETm123.4c567.89#"    SET the stored conversion values
   
 RETURNED: "aaI0SSSETm123.4c567.89#"     With the numbers after m and c being the conversion values
 
-Note: Request: "aaI0SSSETm1c0#" or " " with CRC to set m= 1 and c=0. This is useful for initial testing.
+Note: Request: "aaI0SSSETm1c0#" or "aaI0SSSETm1c0?34#" with CRC to set m= 1 and c=0. This is useful for initial testing.
                                       
 ## Set the unit to broadcast:  
 Request: "aaI0SEND?#" where ? is an int (0)= 1s data, (1)= 10s data, (2)= 60s/1 min data, (3)= 600s/10 min data, (4)= 3600s/1hr data, (5)= NO data 
@@ -178,7 +178,7 @@ You can also set the unit to broadcast using the user switch. Press the button f
 If the unit is in broadcast mode then the minimum and maximum wind speeds and the wind vane data are all reset each time period.
 
 ## What is baud rate?:                 
-Request: "aaI0BD#" ("aaI0BD?dc#" with CRC)
+Request: "aaI0BD#" ("aaI0BD?dc#" with CRC for device ID 0 or "aaI1BD?b7#" for device ID 1)
 
 Returns: "aaBD9600#"  // Where 9600 is the baud rate + CRC if requested
                                       
@@ -205,24 +205,10 @@ Solder |NC     |Solder | 5
 NC     |Solder |Solder | 6
 Solder |Solder |Solder | 7
 
-## Enter vane training mode:           
-Request: "aaI0VT#" ("aaI0VT?af#" with CRC)
-
-Returns: Enter the vane training routine - use button to go through the different directions and set the values.
-
-The serial port will show which direction the vane should be pointing at. 
-
-Move the vane to this position and press the user switch (for around 0.5 seconds).
-
-The serial port will show then next direction and will got N, NE, E, SE, S, SW, W, NW and then end.
-
-The unit will also send "aaI0WVOK=NW" + CRC +"#" to report back which direction the unit is now being trained.
-
-When it ends this data is stored within the unit and the direction 'bands' are recaluclated.
-
 ## Serial 'Button' press
 
 The command "aaI0BUTTON" + CRC + "#" will act just like a button press. This is for control via a data logger serial port without access to the physical switch.
+e.g. This is "aaI1BUTTON?f4#" including CRC for device ID 1.
 
 ## Add CRC check:           
 Within the config of the firmware a CRC (Cyclic Redundancy Check) can be added to the data (or not!).
@@ -241,17 +227,10 @@ For example: aaI0RESET?d9# has the CRC check d9 added to the reset request.
 
 Remember: Capitalisation will affect the results: D is not the same as d!
 
-You can use this online calculator to check your CRC: https://crccalc.com/ The type of CRC is CRC-8/SMBUS.
+You can use this online calculator to check your CRC: https://crccalc.com/ 
+
+**The type of CRC is CRC-8/SMBUS.**
 
 ## Failure codes:
+
 If data is not that length or does not have 'aa' and '#' at start/end then return with send "aaFAIL**#" error code. All will have CRC on these codes, if requested.
-
-"aaFAIL1#" = String too long
-
-"aaFAIL2#" = Unit ID not correct/not a number
-
-"aaFAIL3#" = Channel ID is not correct/not a number
-
-"aaFAIL4#" = Average not correct/not a number
-
-"aaFAIL5#" = Start/End chars not correct
