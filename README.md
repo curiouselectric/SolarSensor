@@ -8,8 +8,9 @@ Here are the design files (hardware, PCB and firmware) for a relatively low cost
 This pyranometer is design to measure solar irradiance in Watts per meter squared. This is useful for monitoring systems for solar photovoltaic panels. It can also be used as an indicator value for light levels in many systems.
 
 The main things to note with this design are:
-*It does not apply any corrections/filtes for human eye parameters (whcih Lux sensors use, typically for photography or dimming algorithms)
-*It does not apply any corrections/filters for pl;ant growing characteristics (typically called PAR  - [Photosynthetically active radiation](https://en.wikipedia.org/wiki/Photosynthetically_active_radiation)
+
+* It does not apply any corrections/filtes for human eye parameters (whcih Lux sensors use, typically for photography or dimming algorithms)
+* It does not apply any corrections/filters for pl;ant growing characteristics (typically called PAR  - [Photosynthetically active radiation](https://en.wikipedia.org/wiki/Photosynthetically_active_radiation)
 
 
 
