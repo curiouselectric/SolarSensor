@@ -26,16 +26,15 @@ I originally designed this to interface to an ESP32 data logger, which sleeps mo
 It was designed as a relatively simple interface to remove the need for monitoring irradiance data and averaging it. 
 There are other dvices in this range, [including a wind sensor](https://www.curiouselectric.co.uk/collections/environment/products/wind-sensor-interface).
 
-
-
 ## Irradiance Measurements
 
 The unit stores average irradiance values from the sensor for 1 second, 10 second, 1 min, 10 min and 1 hour values. It also records the maximum and minimum irradiance.
 
 The unit converts the tiny current from the solar PV cell within a photodiode into an Watts per meter squared value using a y=mx+c linear conversion, where y is the irradiance value and x is the ADC reading from the photo diode sensor circuitry. m and c are stored in EEPROM and have default values of m=1 and c=0. These are floats and can be changed as required through the serial interface. Any updated values are stored in EEPROM. The output will not go negative - it will round out at 0.
 
-
 ## Temperature Measurements
+
+
 
 
 
