@@ -125,47 +125,50 @@ You can then upload code by choosing the "ATMega328" option with the "External 8
 # Serial Data and Commands
 
 It returns the average values and information when requested on serial port.
+
 At all other times then the unit is asleep.
 
-## Wind Speed data:
-Request: “aaI0WSA4#”  ("aaI0WSA4?19#" with CRC)  Where 0 is an ID from 0-7 set by solder on PCB. 4 is the averaging period (0=1s, 1=10s, 2 = 60s, 3 = 600s, 4=3600s)  
+This unit is called the Solar Sensor, so I used "SS" as its simple serial name.
 
-Returns: "aaI0WSA4:3.00:5.67:1.23#"  // Where 4 is the averaging period, 3.00 is the data within the averaging period, 5.67 is the maximum and 1.23 is the minimum. 
+## Irradiance data:
+Request: “aaI0SSA4#”  ("  " with CRC)  Where 0 is an ID from 0-7 set by solder on PCB. 4 is the averaging period (0=1s, 1=10s, 2 = 60s, 3 = 600s, 4=3600s)  
+
+Returns: "aaI0SSA1:28.51:28.60:28.50:18.00#" 
+
+where the first number (between semi-colons) is the average, 2nd number is the Maximum (until a reset is done), 3rd number is the Minimum and 4th number is the temperature.
+
+Temperature has a resolution of 0.5 C (18.00C in this example).
+
+Response will include the averaging number (1 in this example).
                                       
-## Wind Speed data minimum:
-Request: “aaI0WSMN#” ("aaI0WSMN?84#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
+## Irradiance data minimum:
+Request: “aaI0SSMN#” (" " with CRC) - does not matter what averaging period. min/max are just the min/max seen.
 
-Returns: "aaI0WSMN:3.00#"  // Where 3.00 is the data + CRC if requested
+Returns: "aaI0SSMN:27.90#" where the number after semi-colon is the minimum. (+CRC if requested)
                                       
-## Wind Speed data maximum:
-Request: “aaI0WSMX#”  ("aaI0WSMX?e6#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
+## Irradiance data maximum:
+Request: “aaI0SSMX#”  ("" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
 
-Returns: "aaI0WSMX:3.00#"  // Where 3.00 is the data + CRC if requested
+Returns: "aaI0SSMX:28.90#" where the number after semi-colon is the maximum. (+CRC if requested)
 
-## What is Anemometer conversion?:    
-Request: "aaI0WSCON#" ("aaI0WSCON?41#" with CRC)
+## Reset the min/max:
+Request:   “aaI0RESET#” ("" with CRC) this will Reset Min & Max.  
+Return:  Nothing
+This command will reset the min/max. Min and max will be stored until this reset command is issued.
 
-Returns: "aaI0STWSCONm123.4c567.89#" (from stored values) + CRC if requested
+## What is Irradiance Sensor conversion?:    
+REQUEST:  "aaI0SSCON#"    Ask for the stored conversion values
+
+RETURNED: "aaI0SSCONm10.00c0.00#"  With the numbers after m and c being the conversion values (+CRC if requested).
                                       
-## Set the Anemometer conversion:      
-Request: "aaI0WSSTm123.4c567.89#"  ("aaI0WSSTm123.4c567.89?38#" with CRC) Where 123.4 is the gradient and 567.89 is the constant (y=mx+c)
+## Set the Irradiance Sensor conversion:      
 
-Returns: "aaI0STWSSETm123.4c567.89#" (set to the new values) + CRC if requested
+REQUEST:  "aaI0SSSETm123.4c567.89#"    SET the stored conversion values
+  
+RETURNED: "aaI0SSSETm123.4c567.89#"     With the numbers after m and c being the conversion values
 
-Request: "aaI0WSSTm1c0#" or "aaI0WSSTm1c0?da#" with CRC to set m= 1 and c=0. This is useful for initial testing.
+Note: Request: "aaI0SSSETm1c0#" or " " with CRC to set m= 1 and c=0. This is useful for initial testing.
                                       
-## Wind Vane data: 
-Request: “aaI0WV#”  ("aaI0WV?b4#" with CRC) Where 0 is an ID from 0-7 set by solder on PCB.
-
-Returns:    The instantaneuous direction AND the direction array data
-                                     
-Returns:    "aaI0WV=W:0.00:0.00:0.00:0.00:0.00:0.00:62.00:0.00#" + CRC if requested
-                                     
-## Reset the max, min and wind vane array:  
-Request: "aaI0RESET#" ("aaI0RESET?d9#" with CRC)
-
-Returns: "aaRESET#"
-
 ## Set the unit to broadcast:  
 Request: "aaI0SEND?#" where ? is an int (0)= 1s data, (1)= 10s data, (2)= 60s/1 min data, (3)= 600s/10 min data, (4)= 3600s/1hr data, (5)= NO data 
 
