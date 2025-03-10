@@ -26,30 +26,19 @@ There are other dvices in this range, [including a wind sensor](https://www.curi
 
 
 
-## Wind Speed Measurements
+## Irradiance Measurements
 
-The anemometer can either be a pulse output, NPN output or hall-effect output. The unit reads digital pulses, with circuitry on the unit converting the hall effect output to pulses. (Note: This unit cannot read 0-5V or analog output sensors).
+The unit stores average irradiance values from the sensor for 1 second, 10 second, 1 min, 10 min and 1 hour values. It also records the maximum and minimum irradiance.
 
-The unit stores average wind speeds for 1 second, 10 second, 1 min, 10 min and 1 hour values. It also records the maximum and minimum wind speed.
+
 
 The unit converts the pulses into a real wind speed using a y=mx+c linear conversion, where y is the wind speed and c is the number of pulses. m and c are stored in EEPROM and have default values of m=1 and c=0. These are floats and can be changed as required through the serial interface. Any updated values are stored in EEPROM. If the pulses are zero then the output is also zero (no matter what the y=mc+c function is). This stops a reading of 'c' when the pulse data is zero.
 
-## Wind Vane Measurements
 
-The wind vane input is analog. 
 
-This can read either resistive wiper vanes or stepped resistive vanes. 
+## Temperature Measurements
 
-The stepped rsistive vanes have magnet reed switches which switch in and out different resistances. 
-The resistance then tells us the direction. A pull up reistor is required in these situations.
 
-The wind vane input can be 'trained'. So put the unit into vane training mode via the serial interface. This will run through N, NE, E, SE, S, SW, W, NW and you can hold the unit in the correct direction position and press the switch to store that data to memory. Once trained then the unit creates a buffer zone around each of the values and within the zone then the unit will record the correct direction.
-
-Wind direction is difficult to measure, as you cannot directly average the analog value (because of the 360 to 0 point where the analog value rolls around from 1024 back to 0 - this means an average of a unit pointing just off north (i.e. one reading of 0 and one reading of 360) will give an average of (360+0)/2 = 180, which is south and totally wrong!). 
-
-This unit will record the number of seconds the vane has been pointing in a certain direction. This means a 'wind rose' can easily be created. This is stored and updated until it is directly reset. The unit will also return the instantaeous direction, if that is needed.
-
-Note: there is a 3V3 zener diode on the input to the Wind Vane unit. If you power the device with 3.3V then this is no problem. If you power the device with 5V then you will need to ensure the voltage at VANE does not go above 3.3V or else it will be limited.
 
 
 There are two mode of operation, depending upon your use case:
@@ -77,22 +66,6 @@ It runs on an ATMega328 running at 8MHz with selectable baud serial (up to 57600
 
 The PCB was designed in KiCAD and is available here. A small PCB has been designed.
 There is one reset switch, one user input switch and one LED output.
-
-Both inputs for the wind vane and anemometer are buffered with an op-amp and also have 5.1V zener protection. The anemometer input compares the input with a low voltage level to create a pulse from a hall-effect (which output a sine-wave like signal). This also works as a pull-down pulse sensor, which works with NPN and switch output anemometers.
-
-## Anemometers Tested:
-
-Anemometer Name      | Link   | Type   | m Value   | c Value
----------------------|----------|---------|----------|----------
-Vector Insrutments NRG #40C | https://www.nrgsystems.com/products/met-sensors/detail/40c-anemometer | Hall-effect  | 0.765 for m/s | 0.35 for m/s
-Maplin Anemometer (low cost) | https://www.ebay.co.uk/itm/274338314354 | Reed-switch pulse | 0.7 for m/s | 0 for m/s
-AliExpress Unit (low cost) PR-3000-FS-NPN| https://www.aliexpress.com/item/32798148991.html | NPN Pulse | |
-
-## Wind Vanes Tested:
-
-Wind Vane Name      |   Link   |  Type
----------------------|----------|-----------
-Maplin Vane | No Link |  Switched resistive
 
 ## Board ID Number
 
