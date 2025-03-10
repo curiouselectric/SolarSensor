@@ -15,13 +15,15 @@ The main things to note with this design are:
 The main issue with this design is the calibration of the sensor data to its actualy real-world data.
 
 # Overview
-This unit reads irradiance from a photo diode sensor (like a P-N junction in a typical solar photovoltaic cell) every 100mS or so. It averages those values over different sampling periods of 1, 10, 60 (1 min), 600 (10 min), 3600 (1 hour) seconds. It has an ATMega328 microcontroller onboard for measuring the sensors, processing commands and returnign serial data. A simple serial interface has been implemented (at max 57600 baud) to service requests from another device (such as a data logger or monitoring system). The serial requests can also have CRC for error checking.
+This unit reads irradiance from a photo diode sensor (like a P-N junction in a typical solar photovoltaic cell) every 100mS or so. 
 
-The sensor uses an accurate 16 bit Analog to Digital converter (ADC) (rather than the 10 bit resolution on-board the micrcontorller). This allso much finer montitoring of the very small current from the solar sensor.
+The sensor uses an accurate 16 bit Analog to Digital converter (ADC) (rather than the 10 bit resolution on-board the micrcontorller). This allows for much finer montitoring of the very small current from the solar sensor. As the sensor will 'max out' well below typicaly outdoor irradiance levels, then we use a 6mm PTFE diffuse to attenuate the irradiance signal. This was caclualted from trial and error, but allows up to 2000W/m² to be measured.
 
 There is also a temperature sensor on-board to adjust readings for the sensor temperature. 
 
-![Overview](https://github.com/curiouselectric/SolarSensor/blob/3d8bd7952c9884ee20aa96705ab54dbe47d60013/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Overview.png?raw=true)
+It averages those values over different sampling periods of 1, 10, 60 (1 min), 600 (10 min), 3600 (1 hour) seconds. It has an ATMega328 microcontroller onboard for measuring the sensors, processing commands and returnign serial data. A simple serial interface has been implemented (at max 57600 baud) to service requests from another device (such as a data logger or monitoring system). The serial requests can also have CRC for error checking.
+
+![Overview](https://github.com/curiouselectric/SolarSensor/blob/master/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Overview.png?raw=true)
 
 I originally designed this to interface to an ESP32 data logger, which sleeps most of the time. The ESP32 wakes up, gets the data it needs, then goes back to sleep, knowing the solar sensor is always monitoring.
 
@@ -32,33 +34,34 @@ There are other dvices in this range, [including a wind sensor](https://www.curi
 
 The unit stores average irradiance values from the sensor for 1 second, 10 second, 1 min, 10 min and 1 hour values. It also records the maximum and minimum irradiance.
 
-The unit converts the tiny current from the solar PV cell within a photodiode into an Watts per meter squared value using a y=mx+c linear conversion, where y is the irradiance value and x is the ADC reading from the photo diode sensor circuitry. m and c are stored in EEPROM and have default values of m=1 and c=0. These are floats and can be changed as required through the serial interface. Any updated values are stored in EEPROM. The output will not go negative - it will round out at 0.
+The unit converts the tiny current from the solar PV cell within a photodiode into a "Watts per meter squared" value using a y=mx+c linear conversion, where y is the irradiance value and x is the ADC reading from the photo diode sensor circuitry. m and c are stored in EEPROM and have default values of m=1 and c=0. These are floats and can be changed as required through the serial interface. Any updated values are stored in EEPROM. The output will not go negative - it will round out at 0.
+
+The photodiode used within the prototype is the [SFH203 from OSRAM](https://look.ams-osram.com/m/67e1a90044b03ee9/original/SFH-203.pdf). This has an output repsonse between 400-1100nm with a sensitive area of 1mm² giving a whopping 80uA of photocurrent!
 
 ## Temperature Measurements
 
+Temperature near to the board inside the unit is measured using a surface mounted LM75 I2C temperature sensor. This will give an approximate temperature of the sensor. This sensor is accurate to 0.5C. 
+Temperature compensation can be applied by updating the config file within the fireware. If the "APPLY_TEMP_COMP" flag is set to "true" then the "TEMP_COMP_VAL" is applied at the real temperature compare to the "RATED_TEMP". Typically the rated temperature is 25C and comes from the [data sheet](https://look.ams-osram.com/m/67e1a90044b03ee9/original/SFH-203.pdf). For the SFH203 the "TEMP_COMP_VAL" is 0.18 %/K and the "RATED_TEMP" is 25C
 
+So an example would be measuring 500 W/m² but the temperature sensor reads 50C.
+The rated temperature is 25C, so we need to apply a compensation of (50 - 25) * 0.18 % = 4.5%, so the sensor will be reading 4.5% under the real value (as output is inversly affected by temperature), So the actual irradiance is 500 + (500*0.045) = 522.5 W/m². Not a huge difference, but this might be important.
 
+You can also remove the temperature compensation and record the irradiance and temperature seperately and apply the compensation later.
 
-
+# Operation
 
 There are two mode of operation, depending upon your use case:
 
 ## Response Mode
 
 In this mode then the unit responds to serial requests made. You ask the sensor for data and this is returned. It never sends anything unless asked. 
-
-![Response](https://github.com/curiouselectric/SolarSensor/blob/3d8bd7952c9884ee20aa96705ab54dbe47d60013/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Response.png?raw=true) 
+![Response](https://github.com/curiouselectric/SolarSensor/blob/master/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Response.png?raw=true) 
 
 ## Broadcast Mode
 
 In this mode then the unit regularly sends data via the serial connunication. It will send the averaged data for (0) 1 second, (1) 10 second, (2) 1 min, (3) 10 min and (4) 1 hour averaged data. If this is set to (5) then the unit does not send any data. The send mdoe is stored in EEPROM, so it will start sending data again even if power is lost.
-
-
-
-![Broadcast](https://github.com/curiouselectric/SolarSensor/blob/7e5009a6d66e798d3fe0864cc3b194c4df65eb46/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Broadcast.png?raw=true)
-
+![Broadcast](https://github.com/curiouselectric/SolarSensor/blob/master/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Broadcast.png?raw=true)
 Boradcast mode works well if the logger is always listening and you only have one sensor in range. If more than one sensor is in range then the data will clash and potentially cause issues, in which case use Response mode.
-
 
 The two modes work together - you can have the unit sending regular data and also responding to requests.
 
@@ -135,23 +138,23 @@ This unit is called the Solar Sensor, so I used "SS" as its simple serial name.
 ## Irradiance data:
 Request: “aaI0SSA4#”  ("aaI0SSA4?41#" with CRC)  Where 0 is an ID from 0-7 set by solder on PCB. 4 is the averaging period (0=1s, 1=10s, 2 = 60s, 3 = 600s, 4=3600s)  
 
-Returns: "aaI0SSA1:28.51:28.60:28.50:18.00#" 
+Returns: "aaI0SSA1:28.5:28.6:28.5:18.0#" 
 
 where the first number (between semi-colons) is the average, 2nd number is the Maximum (until a reset is done), 3rd number is the Minimum and 4th number is the temperature.
 
-Temperature has a resolution of 0.5 C (18.00C in this example).
+Temperature has a resolution of 0.5 C (18.0C in this example).
 
 Response will include the averaging number (1 in this example).
                                       
 ## Irradiance data minimum:
 Request: “aaI0SSMN#” ("aaI0SSMN?dc#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
 
-Returns: "aaI0SSMN:27.90#" where the number after semi-colon is the minimum. (+CRC if requested)
+Returns: "aaI0SSMN:27.9#" where the number after semi-colon is the minimum. (+CRC if requested)
                                       
 ## Irradiance data maximum:
 Request: “aaI0SSMX#”  ("aaI0SSMX?be#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
 
-Returns: "aaI0SSMX:28.90#" where the number after semi-colon is the maximum. (+CRC if requested)
+Returns: "aaI0SSMX:28.9#" where the number after semi-colon is the maximum. (+CRC if requested)
 
 ## Reset the min/max:
 Request:   “aaI0RESET#” ("aaI0RESET?d9#" with CRC) this will Reset Min & Max.  
