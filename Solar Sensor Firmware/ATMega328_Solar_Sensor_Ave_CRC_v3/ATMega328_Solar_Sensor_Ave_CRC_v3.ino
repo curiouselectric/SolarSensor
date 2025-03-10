@@ -292,7 +292,7 @@ void t1SCallback() {
     {
       // Applying temperature compensation here:
       float Adjust_percent = (solar_data.sensor_temperature - RATED_TEMP) * TEMP_COMP_VAL;
-      float Irradiance_tcomp = solar_data.data_1s - (solar_data.data_1s * (Adjust_percent / 100.0));
+      float Irradiance_tcomp = solar_data.data_1s + (solar_data.data_1s * (Adjust_percent / 100.0)); // Irradiance is inversely affected!
       solar_data.data_1s = Irradiance_tcomp;
     }
 

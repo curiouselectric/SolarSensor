@@ -24,7 +24,7 @@
 #define TEMP_COMP_VAL     0.18  // % change in short circuit current away from rated temperature
 #define RATED_TEMP        25.0  // Datasheet value about temperature rating
 
-#define ADD_CRC_CHECK     true    // Use this to add CRC check to incomming and outgoing messages
+#define ADD_CRC_CHECK     false    // Use this to add CRC check to incomming and outgoing messages
 
 #define DEBUG_FLAG        false   // Use this for debugging. Not need for roll out.
 #define DEBUG_DATA_1S     false   // Use this for debugging. Not need for roll out.
