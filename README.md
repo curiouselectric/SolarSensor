@@ -12,6 +12,8 @@ The main things to note with this design are:
 * It does not apply any corrections/filtes for human eye parameters (whcih Lux sensors use, typically for photography or dimming algorithms)
 * It does not apply any corrections/filters for pl;ant growing characteristics (typically called PAR  - [Photosynthetically active radiation](https://en.wikipedia.org/wiki/Photosynthetically_active_radiation)
 
+The main issue with this design is the calibration of the sensor data to its actualy real-world data.
+
 # Overview
 This unit reads irradiance from a photo diode sensor (like a P-N junction in a typical solar photovoltaic cell) every 100mS or so. It averages those values over different sampling periods of 1, 10, 60 (1 min), 600 (10 min), 3600 (1 hour) seconds. It has an ATMega328 microcontroller onboard for measuring the sensors, processing commands and returnign serial data. A simple serial interface has been implemented (at max 57600 baud) to service requests from another device (such as a data logger or monitoring system). The serial requests can also have CRC for error checking.
 
