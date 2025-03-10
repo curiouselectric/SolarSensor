@@ -21,6 +21,8 @@ The sensor uses an accurate 16 bit Analog to Digital converter (ADC) (rather tha
 
 There is also a temperature sensor on-board to adjust readings for the sensor temperature. 
 
+![Overview](https://github.com/curiouselectric/SolarSensor/blob/3d8bd7952c9884ee20aa96705ab54dbe47d60013/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Overview.png?raw=true)
+
 I originally designed this to interface to an ESP32 data logger, which sleeps most of the time. The ESP32 wakes up, gets the data it needs, then goes back to sleep, knowing the solar sensor is always monitoring.
 
 It was designed as a relatively simple interface to remove the need for monitoring irradiance data and averaging it. 
@@ -45,13 +47,15 @@ There are two mode of operation, depending upon your use case:
 
 In this mode then the unit responds to serial requests made. You ask the sensor for data and this is returned. It never sends anything unless asked. 
 
-![Response](https://github.com/curiouselectric/WindSensor/blob/main/Wind%20Sensor%20Instructions/Images/wind%20sensor%20response.png?raw=true)
+![Response](https://github.com/curiouselectric/SolarSensor/blob/3d8bd7952c9884ee20aa96705ab54dbe47d60013/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Response.png?raw=true) 
 
 ## Broadcast Mode
 
 In this mode then the unit regularly sends data via the serial connunication. It will send the averaged data for (0) 1 second, (1) 10 second, (2) 1 min, (3) 10 min and (4) 1 hour averaged data. If this is set to (5) then the unit does not send any data. The send mdoe is stored in EEPROM, so it will start sending data again even if power is lost.
 
-![Broadcast](https://github.com/curiouselectric/WindSensor/blob/main/Wind%20Sensor%20Instructions/Images/wind%20sensor%20broadcast.png?raw=true)
+
+
+![Broadcast](https://github.com/curiouselectric/SolarSensor/blob/7e5009a6d66e798d3fe0864cc3b194c4df65eb46/Solar%20Sensor%20Instructions/Images/Solar%20Sensor%20Broadcast.png?raw=true)
 
 Boradcast mode works well if the logger is always listening and you only have one sensor in range. If more than one sensor is in range then the data will clash and potentially cause issues, in which case use Response mode.
 
