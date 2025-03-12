@@ -10,7 +10,7 @@ This pyranometer is design to measure solar irradiance in Watts per meter square
 The main things to note with this design are:
 
 * It does not apply any corrections/filtes for human eye parameters (whcih Lux sensors use, typically for photography or dimming algorithms)
-* It does not apply any corrections/filters for pl;ant growing characteristics (typically called PAR  - [Photosynthetically active radiation](https://en.wikipedia.org/wiki/Photosynthetically_active_radiation)
+* It does not apply any corrections/filters for plant growing characteristics (typically called PAR  - [Photosynthetically active radiation](https://en.wikipedia.org/wiki/Photosynthetically_active_radiation)
 
 The main issue with this design is the calibration of the sensor data to its actualy real-world data.
 
@@ -87,13 +87,13 @@ The LED will also flash whenever data is sent of the serial port. The LED will g
 
 Pressing the user switch for >0.5 seconds and then releasing will result in a switch press. 
 
-A switch press will increment the mode from 0-1-2-3-4-5 then back to 0. 
+A switch press will increment the "mode" from 0-1-2-3-4-5 then back to 0. 
 
 The unit will flash after a button press to indicate the broadcast mode (so 0 flashes if the value is 0, 1 flash if the value is 1 etc). 
 
 If this is set to 5 then the unit works in 'Response' mode. 
 
-If this is set to 0-4 then the unit is in broadcast mode and will send the data at the relevant interval (0 = 1s, 1 = 10s, 2 = 1 min, 3 = 10 min and 4 = 1 hour). 
+If this is set to 0-4 then the unit is in 'Broadcast' mode and will send the data at the relevant interval (0 = 1s, 1 = 10s, 2 = 1 min, 3 = 10 min and 4 = 1 hour). 
 
 The mode can also be set with a serial request, using the "Set the unit to broadcast:" method (see below).
 
@@ -136,9 +136,9 @@ At all other times then the unit is asleep.
 This unit is called the Solar Sensor, so I used "SS" as its simple serial name.
 
 ## Irradiance data:
-Request: “aaI0SSA4#”  ("aaI0SSA4?41#" with CRC)  Where 0 is an ID from 0-7 set by solder on PCB. 4 is the averaging period (0=1s, 1=10s, 2 = 60s, 3 = 600s, 4=3600s)  
+REQUEST: “aaI0SSA4#”  ("aaI0SSA4?41#" with CRC)  Where 0 is an ID from 0-7 set by solder on PCB. 4 is the averaging period (0=1s, 1=10s, 2 = 60s, 3 = 600s, 4=3600s)  
 
-Returns: "aaI0SSA1:28.5:28.6:28.5:18.0#" 
+RETURNED: "aaI0SSA1:28.5:28.6:28.5:18.0#" 
 
 where the first number (between semi-colons) is the average, 2nd number is the Maximum (until a reset is done), 3rd number is the Minimum and 4th number is the temperature.
 
@@ -147,21 +147,27 @@ Temperature has a resolution of 0.5 C (18.0C in this example).
 Response will include the averaging number (1 in this example).
                                       
 ## Irradiance data minimum:
-Request: “aaI0SSMN#” ("aaI0SSMN?dc#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
 
-Returns: "aaI0SSMN:27.9#" where the number after semi-colon is the minimum. (+CRC if requested)
+REQUEST: “aaI0SSMN#” ("aaI0SSMN?dc#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
+
+RETURNED: "aaI0SSMN:27.9#" where the number after semi-colon is the minimum. (+CRC if requested)
                                       
 ## Irradiance data maximum:
-Request: “aaI0SSMX#”  ("aaI0SSMX?be#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
 
-Returns: "aaI0SSMX:28.9#" where the number after semi-colon is the maximum. (+CRC if requested)
+REQUEST: “aaI0SSMX#”  ("aaI0SSMX?be#" with CRC) - does not matter what averaging period. min/max are just the min/max seen.
+
+RETURNED: "aaI0SSMX:28.9#" where the number after semi-colon is the maximum. (+CRC if requested)
 
 ## Reset the min/max:
-Request:   “aaI0RESET#” ("aaI0RESET?d9#" with CRC) this will Reset Min & Max.  
-Return:  Nothing
+
+REQUEST:   “aaI0RESET#” ("aaI0RESET?d9#" with CRC) this will Reset Min & Max.  
+
+RETURNED:  Nothing
+
 This command will reset the min/max. Min and max will be stored until this reset command is issued.
 
-## What is Irradiance Sensor conversion?:    
+## What is Irradiance Sensor conversion?: 
+
 REQUEST:  "aaI0SSCON#"    Ask for the stored conversion values
 
 RETURNED: "aaI0SSCONm10.00c0.00#"  With the numbers after m and c being the conversion values (+CRC if requested).
@@ -175,23 +181,23 @@ RETURNED: "aaI0SSSETm123.4c567.89#"     With the numbers after m and c being the
 Note: Request: "aaI0SSSETm1c0#" or "aaI0SSSETm1c0?34#" with CRC to set m= 1 and c=0. This is useful for initial testing.
                                       
 ## Set the unit to broadcast:  
-Request: "aaI0SEND?#" where ? is an int (0)= 1s data, (1)= 10s data, (2)= 60s/1 min data, (3)= 600s/10 min data, (4)= 3600s/1hr data, (5)= NO data 
+REQUEST: "aaI0SEND?#" where ? is an int (0)= 1s data, (1)= 10s data, (2)= 60s/1 min data, (3)= 600s/10 min data, (4)= 3600s/1hr data, (5)= NO data 
 
-Returns: "aaI0SENDOK#" + CRC if requested
+RETURNED: "aaI0SENDOK#" + CRC if requested
 
 You can also set the unit to broadcast using the user switch. Press the button for around 0.5s or more then release. This will go through the boradcast modes from 0-1-2-3-4-5 then back round to 0. The LED will flash the number of times for the setting (so send = 0 the unit will not flash, but data will appear within 1 second!).
 
 If the unit is in broadcast mode then the minimum and maximum wind speeds and the wind vane data are all reset each time period.
 
 ## What is baud rate?:                 
-Request: "aaI0BD#" ("aaI0BD?dc#" with CRC for device ID 0 or "aaI1BD?b7#" for device ID 1)
+REQUEST: "aaI0BD#" ("aaI0BD?dc#" with CRC for device ID 0 or "aaI1BD?b7#" for device ID 1)
 
-Returns: "aaBD9600#"  // Where 9600 is the baud rate + CRC if requested
+RETURNED: "aaBD9600#"  // Where 9600 is the baud rate + CRC if requested
                                       
 ## Set Baud Rate:                      
-Request: "aaI0STBD*#"  Where * is (0)1200, (1)2400, (2)9600, (3)57600, (4)115200
+REQUEST: "aaI0STBD*#"  Where * is (0)1200, (1)2400, (2)9600, (3)57600, (4)115200
 
-Returns: "aaBD9600#"   // Where 9600 is the baud rate + CRC if requested
+RETURNED: "aaBD9600#"   // Where 9600 is the baud rate + CRC if requested
 
 ## What is ID?:                        
 Mentioned at start up of unit - it is solder-programmed... cannot be changed in code.
