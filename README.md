@@ -188,19 +188,17 @@ Note: Request: "aaI0SSSETm1c0#" or "aaI0SSSETm1c0?34#" with CRC to set m= 1 and 
 
 REQUEST:  "aaI0SSTCON#"    Ask for the stored conversion values
 
-RETURNED: "aaI0SSTCONm10.00c0.00#"  With the numbers after m and c being the conversion values (+CRC if requested).
+RETURNED: "aaI0SSTCONp0.18r25.0#"  With the numbers after p being the percentage adjustment and r being the reated temperature (in C) (+CRC if requested).
                                       
 ## Set the Temperature conversion:      
 
-REQUEST:  "aaI0SSSTCONm123.4c567.89#"    SET the stored conversion values
+REQUEST:  "aaI0SSTCONp0.18r25.0#"    SET the stored conversion values
   
-RETURNED: "aaI0SSSTCONm123.4c567.89#"     With the numbers after m and c being the conversion values
-
-Note: Request: "aaI0SSSTCONm1c0#" or "aaI0SSSTCONm1c0?  #" with CRC to set m= 1 and c=0. This is useful for initial testing.
+RETURNED: "aaI0SSTCONp0.18r25.0#"     With the numbers after m and c being the conversion values
 
 ## Switch on/off Temperature conversion?: 
 
-REQUEST:  "aaI0SSTCONON#"    to set temperature conversion ON. REQUEST:  "aaI0SSTCONOFF#"    to set temperature conversion OFF
+REQUEST:  "aaI0SSTCONON#"  to set temperature conversion ON. REQUEST:  "aaI0SSTCONOFF#" to set temperature conversion OFF
 
 RETURNED: "aaI0SSTCONON#" or "aaI0SSTCONOFF#" (+CRC if requested).
                                       
