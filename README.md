@@ -168,17 +168,37 @@ This command will reset the min/max. Min and max will be stored until this reset
 
 ## What is Irradiance Sensor conversion?: 
 
-REQUEST:  "aaI0SSCON#"    Ask for the stored conversion values
+REQUEST:  "aaI0SSCON#"    Ask for the stored irradiance conversion values
 
 RETURNED: "aaI0SSCONm10.00c0.00#"  With the numbers after m and c being the conversion values (+CRC if requested).
                                       
 ## Set the Irradiance Sensor conversion:      
 
-REQUEST:  "aaI0SSSETm123.4c567.89#"    SET the stored conversion values
+REQUEST:  "aaI0SSSETm123.4c567.89#"    SET the stored irradiance conversion values
   
 RETURNED: "aaI0SSSETm123.4c567.89#"     With the numbers after m and c being the conversion values
 
 Note: Request: "aaI0SSSETm1c0#" or "aaI0SSSETm1c0?34#" with CRC to set m= 1 and c=0. This is useful for initial testing.
+
+## What is Temperature conversion?: 
+
+REQUEST:  "aaI0SSTCON#"    Ask for the stored conversion values
+
+RETURNED: "aaI0SSTCONm10.00c0.00#"  With the numbers after m and c being the conversion values (+CRC if requested).
+                                      
+## Set the Temperature conversion:      
+
+REQUEST:  "aaI0SSSTCONm123.4c567.89#"    SET the stored conversion values
+  
+RETURNED: "aaI0SSSTCONm123.4c567.89#"     With the numbers after m and c being the conversion values
+
+Note: Request: "aaI0SSSTCONm1c0#" or "aaI0SSSTCONm1c0?  #" with CRC to set m= 1 and c=0. This is useful for initial testing.
+
+## Switch on/off Temperature conversion?: 
+
+REQUEST:  "aaI0SSTCONON#"    to set temperature conversion ON. REQUEST:  "aaI0SSTCONOFF#"    to set temperature conversion OFF
+
+RETURNED: "aaI0SSTCONON#" or "aaI0SSTCONOFF#" (+CRC if requested).
                                       
 ## Set the unit to broadcast:  
 REQUEST: "aaI0SEND?#" where ? is an int (0)= 1s data, (1)= 10s data, (2)= 60s/1 min data, (3)= 600s/10 min data, (4)= 3600s/1hr data, (5)= NO data 
