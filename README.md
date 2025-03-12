@@ -246,3 +246,29 @@ You can use this online calculator to check your CRC: https://crccalc.com/
 ## Failure codes:
 
 If data is not that length or does not have 'aa' and '#' at start/end then return with send "aaFAIL**#" error code. All will have CRC on these codes, if requested.
+
+## Analog Output
+
+There is an analog output on the device which will always output a voltage which is proportional to the irradiance level. This is useful if you just want to see the data on a multimeter or some panel meter.
+
+The unit is set with a maxinmum irradiance of 2000W/m². This will give the maximum output from the analog output (which will be Vcc (the supply voltage)). At an irradiance of 1000W/m² then the output will be Vcc/2.
+
+This means we need a relatively stable and accurate power supply to give stable and accurate output.
+
+Note: 
+* Only have 256 levels for the analog output.
+* Need to know Vcc to get absolute value
+* Can output up to MAX_IRRADIANCE W/m2 MAX, which is set in the firmware to 2000W/m²
+  
+Example: So 1000 W/m2 = 256*1000/MAX_IRRADIANCE = PWM Value 128 => Vcc/ 2 (for MAX_IRRADIANCE = 2000 W/m2)
+  
+Example: So 100 W/m2 = 256*100/MAX_IRRADIANCE = PWM Value 12.8 (or 13 in discrete levels) => Vcc/20 (for MAX_IRRADIANCE = 2000 W/m2)
+
+The resolution of the output is Vcc/256, so for 5V Vcc this is  0.01953V or 19.5mV
+
+A reading of 1000W would be PWM of 128 which gives output of 2.5V
+
+A reading of 100W would should give PWM of 12.8 (so output voltage should be 0.25V) BUT 12.8 is converted to 13 as an INT (rounding up)
+
+So output is actually 0.2539V. Basically there is a 'step' of 19.5mV (at Vcc = 5V) so data will be 'stepped'
+
