@@ -12,7 +12,11 @@ The main things to note with this design are:
 * It does not apply any corrections/filtes for human eye parameters (whcih Lux sensors use, typically for photography or dimming algorithms)
 * It does not apply any corrections/filters for plant growing characteristics (typically called PAR  - [Photosynthetically active radiation](https://en.wikipedia.org/wiki/Photosynthetically_active_radiation)
 
-The main issue with this design is the calibration of the sensor data to its actualy real-world data.
+The main issue with this design is the calibration of the sensor data to its actual real-world data. I have attempted to give sensible conversion factors for the sensors used, but calibration for each exact set up with 
+calibrated measurement equipment is potentially needed, depending upon you application.
+
+If you are looking for relative changes in irradiance then this sensor is perfectly suitable. 
+
 
 # Overview
 This unit reads irradiance from a photo diode sensor (like a P-N junction in a typical solar photovoltaic cell) every 100mS or so. 
