@@ -298,7 +298,7 @@ void t1SCallback() {
       solar_data.data_1s = 0;
     }
     // ******* Apply temperature compensation? *************************
-    if (solar_data.solar_tempcon_flag == true)
+    if (solar_data.solar_tempcon_flag == true) 
     {
       // Applying temperature compensation here:
       float Adjust_percent = (solar_data.sensor_temperature - solar_data.solar_tempcon_rated_c) * solar_data.solar_tempcon_percentage;
