@@ -196,7 +196,7 @@ REQUEST:  "aaI0SSTCONp0.18r25.0#"    SET the stored conversion values
   
 RETURNED: "aaI0SSTCONp0.18r25.0#"     With the numbers after m and c being the conversion values
 
-## Switch on/off Temperature conversion?: 
+## Switch on/off Temperature conversion: 
 
 REQUEST:  "aaI0SSTCONON#"  to set temperature conversion ON. REQUEST:  "aaI0SSTCONOFF#" to set temperature conversion OFF
 
